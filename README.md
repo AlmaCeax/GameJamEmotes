@@ -1,1 +1,1 @@
-# GameJameEmotes
+# GameJamEmotes

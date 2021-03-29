@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/EmotesGame/Scenes/Lobby.unity
+    guid: 78776d35e93262c478799659c8f21a6d
+  - enabled: 1
+    path: Assets/EmotesGame/Scenes/Testing.unity
+    guid: c7584d3f01a1015418ed0e7306c8c0d5
   m_configObjects: {}
