@@ -46,3 +46,7 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 1184923686718787041, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
   - {fileID: 1328553918336435811, guid: a10c5376770821b4b9600c93c5825d00, type: 3}
+  paths:
+  - {fileID: 0}
+  - {fileID: 0}
+  vCam: {fileID: 0}

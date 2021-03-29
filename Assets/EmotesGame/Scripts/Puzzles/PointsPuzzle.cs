@@ -27,7 +27,9 @@ public class PointsPuzzle : MonoBehaviour
     private void Start()
     {
         pMovement = platform.GetComponent<PlatformMove>();
+        Move(0.0f);
     }
+
     private void Update()
     {
         switch (activationType)
@@ -36,15 +38,7 @@ public class PointsPuzzle : MonoBehaviour
                 break;
             case ActivationType.Pressure:
                 {
-                    //setup distance
-                    distance = active ? Mathf.Clamp(distance + movementSpeed * Time.deltaTime, distance, curve.GetDistance()) : Mathf.Clamp(distance - movementSpeed * Time.deltaTime, 0, distance);
-
-                    //calculate position and tangent
-                    Vector3 tangent;
-                    Vector3 nextPosition = curve.CalcPositionAndTangentByDistance(distance, out tangent);
-                    pMovement.direction = nextPosition - platform.position;
-                    platform.position = nextPosition;
-                    platform.rotation = Quaternion.LookRotation(tangent);
+                    Move(active ? movementSpeed * Time.deltaTime : -movementSpeed * Time.deltaTime);
                 }
                 break;
             case ActivationType.Manual:
