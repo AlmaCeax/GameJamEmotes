@@ -7,14 +7,15 @@ public class CereMultiPlatformMove : MonoBehaviour
     // Start is called before the first frame update
     private bool move;
     private bool left;
-    public GameObject multiplatform;
     public int length;
     private int count;
+    private CharacterController player1;
+    private CharacterController player2;
 
     void Start()
     {
         move = false;
-        left = false;
+        left = true;
         count = length;
     }
 
@@ -25,22 +26,49 @@ public class CereMultiPlatformMove : MonoBehaviour
         {
             if(left && count > 0)
             {
-                multiplatform.transform.position = new Vector3(multiplatform.transform.position.x + (1 * Time.deltaTime), multiplatform.transform.position.y, multiplatform.transform.position.z);
+                transform.position = new Vector3(transform.position.x + (1 * Time.deltaTime), transform.position.y, transform.position.z);
+                if(player1)
+                    player1.Move(transform.right * Time.deltaTime);
+                if(player2)
+                    player2.Move(transform.right * Time.deltaTime);
                 count--;
             }
             else if(!left && count < length)
             {
-                multiplatform.transform.position = new Vector3(multiplatform.transform.position.x - (1 * Time.deltaTime), multiplatform.transform.position.y, multiplatform.transform.position.z);
+                transform.position = new Vector3(transform.position.x - (1 * Time.deltaTime), transform.position.y, transform.position.z);
+                if(player1)
+                    player1.Move(-transform.right * Time.deltaTime);
+                if(player2)
+                    player2.Move(-transform.right * Time.deltaTime);
                 count++;
             }
+            if (count == length)
+                left = true;
+            else if (count == 0)
+                left = false;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         move = true;
-        left = !left;
+        if (player1 == null)
+            player1 = other.GetComponent<CharacterController>();
+        else if(other.GetComponent<CharacterController>() != player1)
+            player2 = other.GetComponent<CharacterController>();
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<CharacterController>() == player1)
+            player1 = null;
+        if (other.GetComponent<CharacterController>() == player2)
+            player2 = null;
+        
+        if (!player1 && !player2)
+            move = false;
+    }
+
+
+
 }
