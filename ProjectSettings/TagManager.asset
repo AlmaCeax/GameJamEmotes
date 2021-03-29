@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
-  - Grabable
+  - Grabbable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground
