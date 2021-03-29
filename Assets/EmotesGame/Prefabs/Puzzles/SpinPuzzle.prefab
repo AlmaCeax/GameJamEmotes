@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e238daa2b3a8c5c4498b85a1b67fc84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationType: 0
+  activationType: 2
   platform: {fileID: 500452514387122424}
   curve: {fileID: 500452515226977038}
   movementSpeed: 5
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd194806cf210d4380d9c7340ec4322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 500452514404056771}
   spinForce: 5
 --- !u!1 &5930626451020827574
 GameObject:
