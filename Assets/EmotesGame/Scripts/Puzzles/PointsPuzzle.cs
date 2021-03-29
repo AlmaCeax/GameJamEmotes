@@ -16,6 +16,7 @@ public class PointsPuzzle : MonoBehaviour
     public ActivationType activationType;
 
     public Transform platform;
+    private PlatformMove pMovement;
     public BGCcMath curve;
     public float movementSpeed = 5.0f;
 
@@ -23,6 +24,10 @@ public class PointsPuzzle : MonoBehaviour
     public bool Active { get { return active; } set { active = value; } }
     private bool active = false;
 
+    private void Start()
+    {
+        pMovement = platform.GetComponent<PlatformMove>();
+    }
     private void Update()
     {
         switch (activationType)
@@ -36,7 +41,9 @@ public class PointsPuzzle : MonoBehaviour
 
                     //calculate position and tangent
                     Vector3 tangent;
-                    platform.position = curve.CalcPositionAndTangentByDistance(distance, out tangent);
+                    Vector3 nextPosition = curve.CalcPositionAndTangentByDistance(distance, out tangent);
+                    pMovement.direction = nextPosition - platform.position;
+                    platform.position = nextPosition;
                     platform.rotation = Quaternion.LookRotation(tangent);
                 }
                 break;
@@ -56,9 +63,12 @@ public class PointsPuzzle : MonoBehaviour
     public void Move(float displacement)
     {
         distance = Mathf.Clamp(distance + displacement, 0, curve.GetDistance());
+        
         //calculate position and tangent
         Vector3 tangent;
-        platform.position = curve.CalcPositionAndTangentByDistance(distance, out tangent);
+        Vector3 nextPosition = curve.CalcPositionAndTangentByDistance(distance, out tangent);
+        pMovement.direction = nextPosition - platform.position;
+        platform.position = nextPosition;
         platform.rotation = Quaternion.LookRotation(tangent);
     }
 }

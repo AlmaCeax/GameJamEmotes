@@ -6,30 +6,16 @@ public class PlatformMove : MonoBehaviour
 {
     // Start is called before the first frame update
     public Vector3 direction;
-    public bool move;
     public CharacterController player1;
     public CharacterController player2;
-
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(move)
-        {
-            if (player1)
-                player1.Move(direction * Time.deltaTime);
-            if (player2)
-                player2.Move(direction * Time.deltaTime);
-        }
-        
-    }
-
-    public void UpdatePlatformDirection(Vector3 other_direction)
-    {
-        direction = other_direction;
+        if (player1)
+            player1.Move(direction);
+        if (player2)
+            player2.Move(direction);      
     }
 
     private void OnTriggerEnter(Collider other)
