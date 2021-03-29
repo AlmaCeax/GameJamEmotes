@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6105798885653264932}
   - component: {fileID: 6105798885653264933}
   m_Layer: 0
-  m_Name: PointsPuzzle
+  m_Name: PressurePuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e238daa2b3a8c5c4498b85a1b67fc84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activationType: 1
   platform: {fileID: 6105798885759343646}
   curve: {fileID: 6105798885905106920}
   movementSpeed: 5
