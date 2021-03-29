@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!player.pView.IsMine)
+        {
+            return;
+        }
+
         int groundLayerMask = 1 << 6;
 
         if (Physics.OverlapSphere(transform.position, groundCheckerRadius, groundLayerMask).Length > 0)
