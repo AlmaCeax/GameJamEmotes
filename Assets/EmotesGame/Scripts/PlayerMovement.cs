@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Robot player;
     private Vector3 playerVelocity;
     public bool groundedPlayer;
-    public float playerSpeed = 2.0f;
+    public float baseSpeed = 3.0f;
+    public float grabbingSpeed = 1.5f;
+    private float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
     private float groundCheckerRadius = 0.1f;
@@ -41,26 +43,29 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = Vector3.zero;
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        float cameraVerticalRotation = currentCamera.transform.eulerAngles.x;
+        Vector3 forwardCamera = Quaternion.AngleAxis(-cameraVerticalRotation, currentCamera.transform.right) * currentCamera.transform.forward;
+        move = move.z * forwardCamera + move.x * currentCamera.transform.right;
 
         switch (player.state)
         {
-            case Robot.STATE.NONE: 
-                move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); 
+            case Robot.STATE.NONE:
+                playerSpeed = baseSpeed;
                 break;
             case Robot.STATE.GRABBING:
-                move = new Vector3(0, 0, Input.GetAxis("Vertical"));
+                playerSpeed = grabbingSpeed;
+                move = Vector3.Dot(transform.forward, move) * transform.forward;
                 break;
             default:
                 break;
         }
 
-        float cameraVerticalRotation = currentCamera.transform.eulerAngles.x;
-        Vector3 forwardCamera = Quaternion.AngleAxis(-cameraVerticalRotation, currentCamera.transform.right) * currentCamera.transform.forward;
-        move = move.z * forwardCamera + move.x * currentCamera.transform.right;
         controller.Move(move * Time.deltaTime * playerSpeed);
+        if (player.currentGrabbedItem)
+            player.currentGrabbedItem.playerDirection = move * Time.deltaTime * playerSpeed;
 
-        if (move != Vector3.zero)
+        if (move != Vector3.zero && player.state == Robot.STATE.NONE)
         {
             gameObject.transform.forward = move;
             anim.SetFloat("Speed", move.magnitude);

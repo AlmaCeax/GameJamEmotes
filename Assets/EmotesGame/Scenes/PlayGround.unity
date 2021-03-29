@@ -475,6 +475,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6339274498382094381, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
 --- !u!1 &781683500
@@ -693,6 +698,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4490909356557630969, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490909356557630969, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490909356557630969, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8600528020431770571, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
         type: 3}
       propertyPath: m_Name
@@ -706,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 8600528020431770575, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 8600528020431770575, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
         type: 3}
@@ -716,7 +736,7 @@ PrefabInstance:
     - target: {fileID: 8600528020431770575, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.33
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 8600528020431770575, guid: 3cb0fa912a8e5764a81dd217e5f3c60f,
         type: 3}
@@ -753,5 +773,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4490909356557630969, guid: 3cb0fa912a8e5764a81dd217e5f3c60f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cb0fa912a8e5764a81dd217e5f3c60f, type: 3}

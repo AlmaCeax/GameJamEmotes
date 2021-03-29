@@ -9,7 +9,7 @@ public class Robot : MonoBehaviour
 
     private float grabRadius = 0.5f;
     private bool grabbing = false;
-    private Grabbable currentGrabbedItem = null;
+    public Grabbable currentGrabbedItem = null;
 
     private Animator anim;
 
@@ -25,19 +25,23 @@ public class Robot : MonoBehaviour
         float grabAxis = Input.GetAxis("Grab");
         if (grabAxis > 0.1f && !grabbing)
         {
-            Collider[] cols = Physics.OverlapSphere(transform.position + new Vector3(0, 0.5f, 0), grabRadius);
+            RaycastHit hit;
 
-            foreach (Collider col in cols)
+            if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out hit,  0.5f))
             {
-                if (col.gameObject.tag == "Grabbable")
+                if(hit.collider.gameObject.tag == "Grabbable")
                 {
-                    currentGrabbedItem = col.gameObject.GetComponent<Grabbable>();
+                    transform.forward = -hit.normal;
+                    currentGrabbedItem = hit.collider.gameObject.GetComponent<Grabbable>();
                     Grab();
                 }
+
             }
         }
-        else if(grabbing)
+        else if(grabAxis < 0.1f && grabbing)
             ReleaseGrab();
+
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, Color.red);
     }
 
     void Grab()
@@ -52,5 +56,6 @@ public class Robot : MonoBehaviour
         state = STATE.NONE;
         grabbing = false;
         currentGrabbedItem.grabbed = false;
+        currentGrabbedItem = null;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Grabbable : MonoBehaviour
 {
     public bool grabbed = false;
-    public Vector3 playerPosition;
+    public Vector3 playerDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,17 +15,10 @@ public class Grabbable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void ParentToPlayer(GameObject player)
-    {
-        transform.SetParent(player.transform);
-    }
-
-    public void UnParentToPlayer()
-    {
-        transform.SetParent(null);
+        if (grabbed)
+        {
+            transform.position += playerDirection;
+        }
     }
 }
 
