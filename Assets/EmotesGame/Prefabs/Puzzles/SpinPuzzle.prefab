@@ -126,6 +126,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  pView: {fileID: 453574113230336734}
 --- !u!114 &2306430384025841194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ MonoBehaviour:
   activationType: 2
   platform: {fileID: 500452514387122424}
   curve: {fileID: 500452515226977038}
+  pView: {fileID: 0}
   movementSpeed: 5
 --- !u!114 &453574113230336734
 MonoBehaviour:
@@ -500,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 500452514404056771}
   spinForce: 5
+  pView: {fileID: 453574113230336734}
 --- !u!114 &2876696859908137908
 MonoBehaviour:
   m_ObjectHideFlags: 0
