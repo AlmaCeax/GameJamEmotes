@@ -1,5 +1,6 @@
 using BansheeGz.BGSpline.Components;
 using BansheeGz.BGSpline.Curve;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class PointsPuzzle : MonoBehaviour
     public Transform platform;
     private PlatformMove pMovement;
     public BGCcMath curve;
+    public PhotonView pView;
     public float movementSpeed = 5.0f;
 
     private float distance = 0f;
@@ -32,6 +34,9 @@ public class PointsPuzzle : MonoBehaviour
 
     private void Update()
     {
+        if (!pView.Owner.IsMasterClient)
+            return;
+
         switch (activationType)
         {
             case ActivationType.Automatic:

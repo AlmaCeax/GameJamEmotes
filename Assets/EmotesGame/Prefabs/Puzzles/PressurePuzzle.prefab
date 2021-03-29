@@ -50,6 +50,7 @@ MonoBehaviour:
   activationType: 1
   platform: {fileID: 6105798885759343646}
   curve: {fileID: 6105798885905106920}
+  pView: {fileID: 0}
   movementSpeed: 5
 --- !u!114 &8887063898547292563
 MonoBehaviour:
@@ -201,6 +202,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  pView: {fileID: 8887063898547292563}
 --- !u!114 &3122640512726867304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 6105798885653264933}
   pressureDisplacement: 0.075
+  pView: {fileID: 8887063898547292563}
 --- !u!114 &2308480492684318373
 MonoBehaviour:
   m_ObjectHideFlags: 0

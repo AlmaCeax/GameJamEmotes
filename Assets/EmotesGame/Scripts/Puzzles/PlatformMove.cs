@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,14 @@ public class PlatformMove : MonoBehaviour
     public Vector3 direction;
     public CharacterController player1;
     public CharacterController player2;
+    public PhotonView pView;
 
     // Update is called once per frame
     void Update()
     {
+        if (!pView.Owner.IsMasterClient)
+            return;
+
         if (player1)
             player1.Move(direction);
         if (player2)

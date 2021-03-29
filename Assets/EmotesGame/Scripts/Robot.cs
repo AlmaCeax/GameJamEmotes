@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,16 +13,23 @@ public class Robot : MonoBehaviour
     public Grabbable currentGrabbedItem = null;
 
     private Animator anim;
+    public PhotonView pView;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
+        pView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!pView.IsMine)
+        {
+            return;
+        }
+
         float grabAxis = Input.GetAxis("Grab");
         if (grabAxis > 0.1f && !grabbing)
         {

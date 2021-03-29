@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,16 @@ public class SpinActivator : MonoBehaviour
 {
     public PointsPuzzle puzzle;
     public float spinForce = 5.0f;
+    public PhotonView pView;
 
     GameObject grabber;
 
+    [PunRPC]
     public void Spin(float force)
     {
+        if (!pView.Owner.IsMasterClient)
+            return;
+
         float displacement = force * Time.deltaTime;
         if(puzzle.CanMove(displacement))
         {
@@ -26,7 +32,9 @@ public class SpinActivator : MonoBehaviour
     }
     public void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Spin(horizontalInput * spinForce);
+        if (Input.GetKey(KeyCode.Q))
+            Spin(spinForce);
+        else if (Input.GetKey(KeyCode.E))
+            Spin(-spinForce);
     }
 }
