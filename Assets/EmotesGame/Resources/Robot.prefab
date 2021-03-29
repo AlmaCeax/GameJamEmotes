@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 7635863581728328309}
   - component: {fileID: 6339274498382094381}
   - component: {fileID: 2303481182501334116}
-  - component: {fileID: 4758159505753411367}
-  - component: {fileID: 4848340919921598592}
+  - component: {fileID: 135648472}
+  - component: {fileID: 135648474}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -192,9 +192,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.05
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -216,13 +216,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 4758159505753411367}
-  - {fileID: 4848340919921598592}
+  ObservedComponents: []
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4758159505753411367
+--- !u!114 &135648472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,14 +229,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184923686718787041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 89ef90fc57355d442b95fc007c8ccda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &4848340919921598592
+  groundedPlayer: 0
+  playerSpeed: 3
+  jumpHeight: 1
+  gravityValue: -20
+--- !u!114 &135648474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,21 +245,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184923686718787041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Script: {fileID: 11500000, guid: a41f3d9706c14bd48b73f44cd40593af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 1
-    SynchronizeType: 0
-    Name: Speed
-  - Type: 4
-    SynchronizeType: 0
-    Name: Jump
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
+  state: 0
 --- !u!1 &1420279430431911610
 GameObject:
   m_ObjectHideFlags: 0

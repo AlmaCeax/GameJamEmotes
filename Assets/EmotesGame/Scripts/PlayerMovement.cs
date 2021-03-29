@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Animator anim;
+    private Robot player;
     private Vector3 playerVelocity;
     public bool groundedPlayer;
     public float playerSpeed = 2.0f;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        player = GetComponent<Robot>();
         currentCamera = Camera.main;
     }
 
@@ -39,7 +41,20 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = Vector3.zero;
+
+        switch (player.state)
+        {
+            case Robot.STATE.NONE: 
+                move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); 
+                break;
+            case Robot.STATE.GRABBING:
+                move = new Vector3(0, 0, Input.GetAxis("Vertical"));
+                break;
+            default:
+                break;
+        }
+
         float cameraVerticalRotation = currentCamera.transform.eulerAngles.x;
         Vector3 forwardCamera = Quaternion.AngleAxis(-cameraVerticalRotation, currentCamera.transform.right) * currentCamera.transform.forward;
         move = move.z * forwardCamera + move.x * currentCamera.transform.right;
