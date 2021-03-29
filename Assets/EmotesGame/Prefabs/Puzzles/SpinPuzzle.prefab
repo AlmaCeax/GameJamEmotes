@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 500452514387122427}
   - component: {fileID: 1264244899}
   - component: {fileID: 1264244900}
+  - component: {fileID: 2306430384025841194}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -123,9 +124,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  move: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
+--- !u!114 &2306430384025841194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500452514387122425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &500452514404056768
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500452514404056770}
   - component: {fileID: 500452514404056771}
+  - component: {fileID: 453574113230336734}
   m_Layer: 0
   m_Name: SpinPuzzle
   m_TagString: Untagged
@@ -176,6 +193,30 @@ MonoBehaviour:
   platform: {fileID: 500452514387122424}
   curve: {fileID: 500452515226977038}
   movementSpeed: 5
+--- !u!114 &453574113230336734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500452514404056768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2876696859908137908}
+  - {fileID: 2306430384025841194}
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &500452515226977039
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500452515226977039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.42, z: 6.65}
+  m_LocalPosition: {x: -4.77, y: -0.42, z: 1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 500452514404056770}
@@ -280,23 +321,23 @@ MonoBehaviour:
   closed: 0
   points:
   - controlType: 1
-    positionLocal: {x: 4.7416215, y: 0, z: -1.4129705}
-    controlFirstLocal: {x: -0.00974822, y: -0, z: -0.690938}
-    controlSecondLocal: {x: 0.00974822, y: 0, z: 0.690938}
+    positionLocal: {x: 1.9922891, y: 0, z: 2.6833057}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
     pointTransform: {fileID: 0}
     curve: {fileID: 500452515226977025}
     fieldsValues: []
   - controlType: 1
-    positionLocal: {x: 1.1746012, y: 0, z: 1.1765356}
-    controlFirstLocal: {x: 1.6268736, y: 0, z: -0.027452469}
-    controlSecondLocal: {x: -1.6268736, y: -0, z: 0.027452469}
+    positionLocal: {x: 0.38731098, y: 0, z: -1.2522461}
+    controlFirstLocal: {x: 0, y: 0, z: 0.9896544}
+    controlSecondLocal: {x: -0, y: -0, z: -0.9896544}
     pointTransform: {fileID: 0}
     curve: {fileID: 500452515226977025}
     fieldsValues: []
   - controlType: 1
-    positionLocal: {x: -3.4046066, y: 0, z: -1.1819596}
-    controlFirstLocal: {x: 0, y: 0, z: 2}
-    controlSecondLocal: {x: -0, y: -0, z: -2}
+    positionLocal: {x: 1.951541, y: 0, z: -5.4454427}
+    controlFirstLocal: {x: -1, y: -0, z: 0}
+    controlSecondLocal: {x: 1, y: 0, z: -0}
     pointTransform: {fileID: 0}
     curve: {fileID: 500452515226977025}
     fieldsValues: []
@@ -358,6 +399,7 @@ GameObject:
   - component: {fileID: 5930626450556319450}
   - component: {fileID: 5930626450556319451}
   - component: {fileID: 5930626450556319448}
+  - component: {fileID: 2876696859908137908}
   m_Layer: 0
   m_Name: SpinActivator
   m_TagString: Untagged
@@ -458,6 +500,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 500452514404056771}
   spinForce: 5
+--- !u!114 &2876696859908137908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930626450556319449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5930626451020827574
 GameObject:
   m_ObjectHideFlags: 0

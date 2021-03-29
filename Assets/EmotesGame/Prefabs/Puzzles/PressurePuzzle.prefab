@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6105798885653264932}
   - component: {fileID: 6105798885653264933}
+  - component: {fileID: 8887063898547292563}
   m_Layer: 0
   m_Name: PressurePuzzle
   m_TagString: Untagged
@@ -50,6 +51,30 @@ MonoBehaviour:
   platform: {fileID: 6105798885759343646}
   curve: {fileID: 6105798885905106920}
   movementSpeed: 5
+--- !u!114 &8887063898547292563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105798885653264934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2308480492684318373}
+  - {fileID: 3122640512726867304}
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6105798885759343647
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +89,7 @@ GameObject:
   - component: {fileID: 6105798885759343645}
   - component: {fileID: 2140859234}
   - component: {fileID: 2140859233}
+  - component: {fileID: 3122640512726867304}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -173,9 +199,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  move: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
+--- !u!114 &3122640512726867304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105798885759343647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &6105798885905106921
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,22 +322,22 @@ MonoBehaviour:
   points:
   - controlType: 1
     positionLocal: {x: 3.3092873, y: 0, z: -1.3275146}
-    controlFirstLocal: {x: -0.00974822, y: -0, z: -0.690938}
-    controlSecondLocal: {x: 0.00974822, y: 0, z: 0.690938}
+    controlFirstLocal: {x: -0.00974822, y: -0, z: -1}
+    controlSecondLocal: {x: 0.00974822, y: 0, z: 1}
     pointTransform: {fileID: 0}
     curve: {fileID: 6105798885905106919}
     fieldsValues: []
   - controlType: 1
-    positionLocal: {x: 1.1746012, y: 0, z: 1.1765356}
-    controlFirstLocal: {x: 1.6268736, y: 0, z: -0.027452469}
-    controlSecondLocal: {x: -1.6268736, y: -0, z: 0.027452469}
+    positionLocal: {x: 0.017163396, y: 0, z: 0.488595}
+    controlFirstLocal: {x: 2.1141949, y: 0, z: 0}
+    controlSecondLocal: {x: -2.1141949, y: -0, z: -0}
     pointTransform: {fileID: 0}
     curve: {fileID: 6105798885905106919}
     fieldsValues: []
   - controlType: 1
     positionLocal: {x: -3.4046066, y: 0, z: -1.1819596}
-    controlFirstLocal: {x: 0, y: 0, z: 2}
-    controlSecondLocal: {x: -0, y: -0, z: -2}
+    controlFirstLocal: {x: 0, y: -0, z: 1}
+    controlSecondLocal: {x: -0, y: 0, z: -1}
     pointTransform: {fileID: 0}
     curve: {fileID: 6105798885905106919}
     fieldsValues: []
@@ -359,6 +400,7 @@ GameObject:
   - component: {fileID: 6105798886433407112}
   - component: {fileID: 6105798886433407109}
   - component: {fileID: 6105798886433407113}
+  - component: {fileID: 2308480492684318373}
   m_Layer: 0
   m_Name: Activator
   m_TagString: Untagged
@@ -469,3 +511,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 6105798885653264933}
   pressureDisplacement: 0.075
+--- !u!114 &2308480492684318373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105798886433407115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
