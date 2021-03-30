@@ -13,11 +13,14 @@ public class PlayerMovement : MonoBehaviour
     public float baseSpeed = 3.0f;
     public float grabbingSpeed = 1.5f;
     private float playerSpeed = 2.0f;
+    public float playerMaxSpeed = 5.0f;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
     private float groundCheckerRadius = 0.1f;
     private int groundLayerMask;
     private Camera currentCamera;
+
+    private Vector3 move;
 
     private void Start()
     {
@@ -32,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        move = Vector3.zero;
+
         if (!player.pView.IsMine)
         {
             return;
@@ -52,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         float cameraVerticalRotation = currentCamera.transform.eulerAngles.x;
         Vector3 forwardCamera = Quaternion.AngleAxis(-cameraVerticalRotation, currentCamera.transform.right) * currentCamera.transform.forward;
         move = move.z * forwardCamera + move.x * currentCamera.transform.right;
