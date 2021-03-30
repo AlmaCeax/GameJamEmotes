@@ -813,6 +813,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4470924910803115063, guid: f26e173b26cc1944fbb6778972d0dc29,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26e173b26cc1944fbb6778972d0dc29, type: 3}
 --- !u!1001 &6105798886514666255
@@ -822,6 +827,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60053205811845947, guid: 62505b412c06e7846a07f28738796c8a,
+        type: 3}
+      propertyPath: ignoreNonControllerUpdates
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 594884736678935178, guid: 62505b412c06e7846a07f28738796c8a,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 850166067912651729, guid: 62505b412c06e7846a07f28738796c8a,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6105798885653264932, guid: 62505b412c06e7846a07f28738796c8a,
         type: 3}
       propertyPath: m_RootOrder
@@ -881,6 +901,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105798886433407114, guid: 62505b412c06e7846a07f28738796c8a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105798886433407114, guid: 62505b412c06e7846a07f28738796c8a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62505b412c06e7846a07f28738796c8a, type: 3}

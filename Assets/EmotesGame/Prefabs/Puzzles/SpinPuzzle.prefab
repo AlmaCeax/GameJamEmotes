@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 500452514387122427}
   - component: {fileID: 1264244899}
   - component: {fileID: 1264244900}
-  - component: {fileID: 2306430384025841194}
+  - component: {fileID: 4470924910803115063}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -123,11 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3bd27e1b235344db0297b68c830b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
-  pView: {fileID: 453574113230336734}
---- !u!114 &2306430384025841194
+  pView: {fileID: 4470924910803115063}
+--- !u!114 &4470924910803115063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,13 +135,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 500452514387122425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1264244900}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &500452514404056768
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +221,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2876696859908137908}
-  - {fileID: 2306430384025841194}
+  - {fileID: 1264244900}
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0

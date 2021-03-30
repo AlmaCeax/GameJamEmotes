@@ -11,19 +11,33 @@ public class PressureActivator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!pView.Owner.IsMasterClient)
-            return;
+        if (!pView.IsMine)
+        {
+            Robot robot = other.GetComponent<Robot>();
+            if (robot != null && !robot.pView.IsMine)
+                return;
+        }
 
-        puzzle.Active = true;
-        transform.position = transform.position + (Vector3.down * pressureDisplacement);
+        pView.RPC("OnStep", RpcTarget.All, true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!pView.Owner.IsMasterClient)
-            return;
-        
-        puzzle.Active = false;
-        transform.position = transform.position - (Vector3.down * pressureDisplacement);
+        if (!pView.IsMine)
+        {
+            Robot robot = other.GetComponent<Robot>();
+            if (robot != null && !robot.pView.IsMine)
+                return;
+        }
+
+        pView.RPC("OnStep", RpcTarget.All, false);
+    }
+
+    [PunRPC]
+    public void OnStep(bool mode)
+    {
+        puzzle.Active = mode;
+        Vector3 movement = mode ? Vector3.down * pressureDisplacement : -Vector3.down * pressureDisplacement;
+        transform.position = transform.position + movement;
     }
 }

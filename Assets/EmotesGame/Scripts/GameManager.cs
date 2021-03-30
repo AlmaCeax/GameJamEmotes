@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     #region Public Fields
     static public GameManager Instance;
+    public Robot player1 = null;
+    public Robot player2 = null;
     #endregion
 
     #region Private Fields
