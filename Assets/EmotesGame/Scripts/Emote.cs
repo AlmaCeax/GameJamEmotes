@@ -16,10 +16,7 @@ public class Emote : MonoBehaviour
     {
         if (isActive)
         {
-            if(pView.Owner.IsLocal)
-                transform.LookAt(Camera.main.transform.position, Vector3.up);
-            else
-                transform.LookAt(Camera.main.transform.position + (transform.position - Camera.main.transform.position), Vector3.up);
+            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
         }
     }
 

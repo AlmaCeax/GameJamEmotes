@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class Robot : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Robot : MonoBehaviour
 
     private bool grabbing = false;
     public Grabbable currentGrabbedItem = null;
+    public GameObject armControl;
+    private float currentArmGrabValue = 0.0f;
 
     private Animator anim;
     public PhotonView pView;
@@ -63,6 +66,7 @@ public class Robot : MonoBehaviour
 
     void Grab()
     {
+        StartCoroutine("GrabAnimation");
         state = STATE.GRABBING;
         grabbing = true;
         if(!currentGrabbedItem.pView.AmOwner)
@@ -73,6 +77,7 @@ public class Robot : MonoBehaviour
 
     void ReleaseGrab()
     {
+        StartCoroutine("UnGrabAnimation");
         state = STATE.NONE;
         grabbing = false;
         currentGrabbedItem.grabbed = false;
@@ -123,5 +128,25 @@ public class Robot : MonoBehaviour
             emotes[(int)EMOTETYPE.HERE].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
         else if (arrows.y > 0.1f)
             emotes[(int)EMOTETYPE.JUMP].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
+    }
+
+    IEnumerator GrabAnimation()
+    {
+        for (float f = currentArmGrabValue; f < 1.0; f += 0.1f)
+        {
+            armControl.GetComponent<Rig>().weight = f;
+            currentArmGrabValue = armControl.GetComponent<Rig>().weight;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    IEnumerator UnGrabAnimation()
+    {
+        for (float f = currentArmGrabValue; f > 0.0; f -= 0.1f)
+        {
+            armControl.GetComponent<Rig>().weight = f;
+            currentArmGrabValue = armControl.GetComponent<Rig>().weight;
+            yield return new WaitForFixedUpdate();
+        }
     }
 }

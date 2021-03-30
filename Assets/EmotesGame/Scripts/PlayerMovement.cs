@@ -79,10 +79,11 @@ public class PlayerMovement : MonoBehaviour
         if (player.currentGrabbedItem)
             player.currentGrabbedItem.playerDirection = move * Time.deltaTime * playerSpeed;
 
-        if (move != Vector3.zero && player.state == Robot.STATE.NONE)
+        if (move != Vector3.zero)
         {
-            gameObject.transform.forward = move;
             anim.SetFloat("Speed", move.magnitude);
+            if(player.state == Robot.STATE.NONE)
+                gameObject.transform.forward = move;
         }
         else
         {
