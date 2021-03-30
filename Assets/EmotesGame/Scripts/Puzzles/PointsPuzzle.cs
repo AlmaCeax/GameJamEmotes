@@ -43,7 +43,9 @@ public class PointsPuzzle : MonoBehaviour
                 break;
             case ActivationType.Pressure:
                 {
-                    SplineMovement(active ? movementSpeed * Time.deltaTime : -movementSpeed * Time.deltaTime);
+                    float displacement = active ? movementSpeed * Time.deltaTime : -movementSpeed * Time.deltaTime;
+                    if (CanMove(displacement))
+                        SplineMovement(displacement);
                 }
                 break;
             case ActivationType.Manual:
