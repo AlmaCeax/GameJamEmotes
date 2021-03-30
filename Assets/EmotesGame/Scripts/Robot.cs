@@ -25,11 +25,6 @@ public class Robot : MonoBehaviour
         anim = GetComponent<Animator>();
         pView = GetComponent<PhotonView>();
         movement = GetComponent<PlayerMovement>();
-
-        if (!GameManager.Instance.player1)
-            GameManager.Instance.player1 = this;
-        else if (!GameManager.Instance.player2)
-            GameManager.Instance.player2 = this;
     }
 
     private void Start()
