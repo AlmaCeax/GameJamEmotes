@@ -14,8 +14,13 @@ public class Emote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
-            transform.LookAt(Camera.main.transform.position + (transform.position - Camera.main.transform.position), Vector3.up);
+        if (isActive)
+        {
+            if(pView.Owner.IsMasterClient)
+                transform.LookAt(Camera.main.transform.position, Vector3.up);
+            else
+                transform.LookAt(Camera.main.transform.position + (transform.position - Camera.main.transform.position), Vector3.up);
+        }
     }
 
     [PunRPC]
