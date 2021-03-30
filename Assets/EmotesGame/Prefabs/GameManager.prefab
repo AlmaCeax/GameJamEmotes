@@ -43,10 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83c654a94cad90408d12aae1e92f681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   playerPrefabs:
   - {fileID: 1184923686718787041, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
   - {fileID: 1328553918336435811, guid: a10c5376770821b4b9600c93c5825d00, type: 3}
   paths:
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   vCam: {fileID: 0}
