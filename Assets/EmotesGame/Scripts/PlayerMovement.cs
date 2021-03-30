@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
+    public CharacterController controller;
     private Animator anim;
     private Robot player;
     private Vector3 playerVelocity;
@@ -24,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GetComponent<Robot>();
         currentCamera = Camera.main;
+
+        if(!player.pView.IsMine)
+            controller.enabled = false;
     }
 
     void Update()

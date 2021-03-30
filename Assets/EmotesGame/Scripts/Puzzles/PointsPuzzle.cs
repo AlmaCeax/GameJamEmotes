@@ -29,12 +29,12 @@ public class PointsPuzzle : MonoBehaviour
     private void Start()
     {
         pMovement = platform.GetComponent<PlatformMove>();
-        Move(0.0f);
+        SplineMovement(0.0f);
     }
 
     private void Update()
     {
-        if (!pView.Owner.IsMasterClient)
+        if (!pView.IsMine)
             return;
 
         switch (activationType)
@@ -43,7 +43,7 @@ public class PointsPuzzle : MonoBehaviour
                 break;
             case ActivationType.Pressure:
                 {
-                    Move(active ? movementSpeed * Time.deltaTime : -movementSpeed * Time.deltaTime);
+                    SplineMovement(active ? movementSpeed * Time.deltaTime : -movementSpeed * Time.deltaTime);
                 }
                 break;
             case ActivationType.Manual:
@@ -59,15 +59,15 @@ public class PointsPuzzle : MonoBehaviour
         float newDistance = Mathf.Clamp(distance + displacement, 0, curve.GetDistance());
         return newDistance < curve.GetDistance() && newDistance > 0;
     }
-    public void Move(float displacement)
+    public void SplineMovement(float displacement)
     {
         distance = Mathf.Clamp(distance + displacement, 0, curve.GetDistance());
         
         //calculate position and tangent
         Vector3 tangent;
         Vector3 nextPosition = curve.CalcPositionAndTangentByDistance(distance, out tangent);
-        pMovement.direction = nextPosition - platform.position;
-        platform.position = nextPosition;
+        pMovement.pView.RPC("Move", RpcTarget.All, nextPosition - platform.position);
+        //pMovement.Move(nextPosition - platform.position);
         platform.rotation = Quaternion.LookRotation(tangent);
     }
 }

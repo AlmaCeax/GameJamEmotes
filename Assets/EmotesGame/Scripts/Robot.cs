@@ -14,12 +14,19 @@ public class Robot : MonoBehaviour
 
     private Animator anim;
     public PhotonView pView;
+    public PlayerMovement movement;
 
     // Start is called before the first frame update
     void Awake()
     {
         anim = GetComponent<Animator>();
         pView = GetComponent<PhotonView>();
+        movement = GetComponent<PlayerMovement>();
+
+        if (!GameManager.Instance.player1)
+            GameManager.Instance.player1 = this;
+        else if (!GameManager.Instance.player2)
+            GameManager.Instance.player2 = this;
     }
 
     // Update is called once per frame

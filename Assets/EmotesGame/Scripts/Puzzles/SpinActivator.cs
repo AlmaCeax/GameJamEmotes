@@ -21,7 +21,7 @@ public class SpinActivator : MonoBehaviour
         if(puzzle.CanMove(displacement))
         {
             transform.Rotate(transform.up, -displacement * 20);
-            puzzle.Move(displacement);
+            puzzle.SplineMovement(displacement);
         }
     }
 
