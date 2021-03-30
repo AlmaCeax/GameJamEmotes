@@ -37,18 +37,30 @@ public class CereButtonsPuzzle : MonoBehaviour
         if (button1 == button)
         {
             count1++;
-            total_count++;
+            SumCount();
         }
             
         else if (button2 == button)
         {
             count2++;
-            total_count++;
+            SumCount();
         }
 
 
         if (count1 < count2 || count1 > count2 + 1)
             ResetAll();
+    }
+
+
+    void SumCount()
+    {
+        total_count++;
+        if(obstacle1.transform.localScale.y > 0.4)
+        {
+            obstacle1.transform.localScale = new Vector3(obstacle1.transform.localScale.x, obstacle1.transform.localScale.y - 0.1f , obstacle1.transform.localScale.z);
+            obstacle2.transform.localScale = new Vector3(obstacle2.transform.localScale.x, obstacle2.transform.localScale.y - 0.1f , obstacle2.transform.localScale.z);
+        }
+        
     }
 
     void ResetAll()
