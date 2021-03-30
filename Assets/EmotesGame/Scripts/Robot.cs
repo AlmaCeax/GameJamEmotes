@@ -64,6 +64,7 @@ public class Robot : MonoBehaviour
         state = STATE.GRABBING;
         grabbing = true;
         currentGrabbedItem.grabbed = true;
+        currentGrabbedItem.pView.TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 
     void ReleaseGrab()
@@ -98,17 +99,16 @@ public class Robot : MonoBehaviour
 
     void EmoteInputs()
     {
-
         Vector2 arrows = new Vector2(Input.GetAxis("HorizontalArrow"), Input.GetAxis("VerticalArrow"));
 
         if(!CheckIsEmoteActive())
         if (arrows.x > 0.1f)
-            emotes[(int)EMOTETYPE.YES].GetComponent<Emote>().Show();
+            emotes[(int)EMOTETYPE.YES].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
         else if (arrows.x < -0.1f)
-            emotes[(int)EMOTETYPE.NO].GetComponent<Emote>().Show();
+            emotes[(int)EMOTETYPE.NO].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
         else if (arrows.y < -0.1f)
-            emotes[(int)EMOTETYPE.HERE].GetComponent<Emote>().Show();
+            emotes[(int)EMOTETYPE.HERE].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
         else if (arrows.y > 0.1f)
-            emotes[(int)EMOTETYPE.JUMP].GetComponent<Emote>().Show();
+            emotes[(int)EMOTETYPE.JUMP].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
     }
 }
