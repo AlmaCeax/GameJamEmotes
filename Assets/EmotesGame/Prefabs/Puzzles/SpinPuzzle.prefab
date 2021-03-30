@@ -193,7 +193,7 @@ MonoBehaviour:
   activationType: 2
   platform: {fileID: 500452514387122424}
   curve: {fileID: 500452515226977038}
-  pView: {fileID: 0}
+  pView: {fileID: 453574113230336734}
   movementSpeed: 5
 --- !u!114 &453574113230336734
 MonoBehaviour:
