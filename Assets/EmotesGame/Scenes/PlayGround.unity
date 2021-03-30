@@ -1208,6 +1208,29 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4490909356557630969, guid: 3cb0fa912a8e5764a81dd217e5f3c60f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cb0fa912a8e5764a81dd217e5f3c60f, type: 3}
+--- !u!1 &1975911034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2566977471411946913, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3741943426067297267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1975911035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975911034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4304f367960b9804686b46d802522ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundedPlayer: 0
+  baseSpeed: 50
+  grabbingSpeed: 1.5
+  playerMaxSpeed: 5
+  jumpHeight: 50
 --- !u!1001 &3741943426067297267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,6 +1238,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 333390916, guid: dbbae213d0edda046b2fa43ebff3f6a7, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2566977471411946913, guid: dbbae213d0edda046b2fa43ebff3f6a7,
         type: 3}
       propertyPath: m_Name
@@ -1280,7 +1307,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1508534801}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3741943425544789144, guid: dbbae213d0edda046b2fa43ebff3f6a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dbbae213d0edda046b2fa43ebff3f6a7, type: 3}
 --- !u!1001 &8600528021164128305
 PrefabInstance:

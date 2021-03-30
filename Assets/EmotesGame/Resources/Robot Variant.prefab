@@ -8,7 +8,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2566977471411946913}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -30,6 +30,23 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1975911035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2566977471411946913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4304f367960b9804686b46d802522ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundedPlayer: 0
+  baseSpeed: 20
+  grabbingSpeed: 1.5
+  playerMaxSpeed: 5
+  jumpHeight: 50
 --- !u!1001 &3741943425409304640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6339274498382094381, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
+    - {fileID: 135648472, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
 --- !u!1 &2566977471411946913 stripped
 GameObject:

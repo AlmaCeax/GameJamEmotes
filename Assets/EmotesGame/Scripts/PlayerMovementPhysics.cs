@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementPhysics : MonoBehaviour
 {
-    private CharacterController controller;
+    private Rigidbody rbody;
     private Animator anim;
     private Robot player;
     private Vector3 playerVelocity;
     public bool groundedPlayer;
+    private bool readyToJump = false;
     public float baseSpeed = 3.0f;
     public float grabbingSpeed = 1.5f;
     private float playerSpeed = 2.0f;
     public float playerMaxSpeed = 5.0f;
     public float jumpHeight = 1.0f;
-    public float gravityValue = -9.81f;
     private float groundCheckerRadius = 0.1f;
     private int groundLayerMask;
     private Camera currentCamera;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         player = GetComponent<Robot>();
         currentCamera = Camera.main;
@@ -38,20 +38,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        int groundLayerMask = 1 << 6;
-
-        if (Physics.OverlapSphere(transform.position, groundCheckerRadius, groundLayerMask).Length > 0)
-        {
-            groundedPlayer = true;
-            anim.SetBool("Fall", false);
-        }
-        else if (groundedPlayer)
-            groundedPlayer = false; 
-
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
+        GroundCheck();
 
         move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         float cameraVerticalRotation = currentCamera.transform.eulerAngles.x;
@@ -64,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
                 playerSpeed = baseSpeed;
                 break;
             case Robot.STATE.GRABBING:
+                rbody.freezeRotation = true;
                 playerSpeed = grabbingSpeed;
                 move = Vector3.Dot(transform.forward, move) * transform.forward;
                 break;
@@ -71,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        controller.Move(move * Time.deltaTime * playerSpeed);
         if (player.currentGrabbedItem)
             player.currentGrabbedItem.playerDirection = move * Time.deltaTime * playerSpeed;
 
@@ -88,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            readyToJump = true;
             anim.SetBool("Jump", true);
         }
 
-        if(playerVelocity.y < 0)
+        if (playerVelocity.y < 0)
         {
             if (anim.GetBool("Jump") == true)
             {
@@ -102,7 +89,47 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Fall", true);
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        //controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void FixedUpdate()
+    {
+        Debug.Log(move);
+
+        if (rbody.velocity.magnitude <= playerMaxSpeed)
+        {
+            rbody.AddForce(move * playerSpeed, ForceMode.Acceleration);
+            Debug.Log("Applying force");
+        }
+
+        if (move == Vector3.zero)
+        {
+            rbody.velocity = Vector3.zero;
+            rbody.angularVelocity = Vector3.zero;
+        }
+
+        if (readyToJump)
+        {
+            rbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            readyToJump = false;
+        }
+    }
+
+    void GroundCheck()
+    {
+        int groundLayerMask = 1 << 6;
+
+        if (Physics.OverlapSphere(transform.position, groundCheckerRadius, groundLayerMask).Length > 0)
+        {
+            groundedPlayer = true;
+            anim.SetBool("Fall", false);
+        }
+        else if (groundedPlayer)
+            groundedPlayer = false;
+
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
     }
 }
