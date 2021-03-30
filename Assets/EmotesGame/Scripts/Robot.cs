@@ -9,7 +9,6 @@ public class Robot : MonoBehaviour
     public STATE state = STATE.NONE;
     enum EMOTETYPE { YES, NO, HERE, JUMP, DANCE, NONE = -1 };
 
-    private float grabRadius = 0.5f;
     private bool grabbing = false;
     public Grabbable currentGrabbedItem = null;
 
@@ -18,7 +17,6 @@ public class Robot : MonoBehaviour
 
     private GameObject[] emotes;
     private GameObject emoteCanvas;
-    private bool isEmoteActive = false;
 
     // Start is called before the first frame update
     void Awake()
