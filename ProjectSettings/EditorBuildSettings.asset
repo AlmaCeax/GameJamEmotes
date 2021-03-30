@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/EmotesGame/Scenes/Lobby.unity
     guid: 78776d35e93262c478799659c8f21a6d
   - enabled: 1
+    path: Assets/EmotesGame/Scenes/LVL1.unity
+    guid: f6f89908174d84942bf7d65f9a6616f1
+  - enabled: 1
     path: Assets/EmotesGame/Scenes/OnlineTesting.unity
     guid: c7584d3f01a1015418ed0e7306c8c0d5
   m_configObjects: {}

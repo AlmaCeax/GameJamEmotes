@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField]
     private CinemachineSmoothPath[] paths;
 
+    [Tooltip("The spawn points of each player")]
+    [SerializeField]
+    private Transform[] spawnPoints;
+
     [Tooltip("Virtual Camera")]
     [SerializeField]
     private CinemachineVirtualCamera vCam;
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, Quaternion.identity, 0);
                 vCam.LookAt = localObject.transform;
                 vCam.Follow = localObject.transform;
                 vCam.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = paths[PhotonNetwork.LocalPlayer.ActorNumber - 1];
