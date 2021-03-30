@@ -36,7 +36,7 @@ public class Robot : MonoBehaviour
             emotes[i] = emoteCanvas.transform.GetChild(i).gameObject;
         }
 
-        emoteCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
+        emoteCanvas.GetComponent<Canvas>().worldCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
     }
 
     // Update is called once per frame

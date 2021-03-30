@@ -15,7 +15,7 @@ public class Emote : MonoBehaviour
     void Update()
     {
         if(isActive)
-            transform.LookAt(Camera.main.transform, Vector3.up);
+            transform.LookAt(Camera.main.transform.GetChild(0), Vector3.up);
     }
 
     [PunRPC]
