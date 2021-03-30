@@ -7,6 +7,7 @@ public class Robot : MonoBehaviour
 {
     public enum STATE { NONE, GRABBING};
     public STATE state = STATE.NONE;
+    enum EMOTETYPE { YES, NO, HERE, JUMP, DANCE, NONE = -1 };
 
     private float grabRadius = 0.5f;
     private bool grabbing = false;
@@ -15,11 +16,25 @@ public class Robot : MonoBehaviour
     private Animator anim;
     public PhotonView pView;
 
+    private GameObject[] emotes;
+    private GameObject emoteCanvas;
+    private bool isEmoteActive = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         anim = GetComponent<Animator>();
         pView = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        emotes = new GameObject[5];
+        emoteCanvas = transform.GetChild(2).gameObject;
+        for(int i = 0; i < 5; ++i)
+        {
+            emotes[i] = emoteCanvas.transform.GetChild(i).gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -30,26 +45,18 @@ public class Robot : MonoBehaviour
             return;
         }
 
-        float grabAxis = Input.GetAxis("Grab");
-        if (grabAxis > 0.1f && !grabbing)
+        CheckGrabbables();
+        EmoteInputs();
+    }
+
+    bool CheckIsEmoteActive()
+    {
+        foreach (GameObject e in emotes)
         {
-            RaycastHit hit;
-
-            if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out hit,  0.5f))
-            {
-                if(hit.collider.gameObject.tag == "Grabbable")
-                {
-                    transform.forward = -hit.normal;
-                    currentGrabbedItem = hit.collider.gameObject.GetComponent<Grabbable>();
-                    Grab();
-                }
-
-            }
+            if (e.GetComponent<Emote>().isActive)
+                return true;
         }
-        else if(grabAxis < 0.1f && grabbing)
-            ReleaseGrab();
-
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, Color.red);
+        return false;
     }
 
     void Grab()
@@ -65,5 +72,43 @@ public class Robot : MonoBehaviour
         grabbing = false;
         currentGrabbedItem.grabbed = false;
         currentGrabbedItem = null;
+    }
+
+    void CheckGrabbables()
+    {
+        float grabAxis = Input.GetAxis("Grab");
+        if (grabAxis > 0.1f && !grabbing)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out hit, 0.5f))
+            {
+                if (hit.collider.gameObject.tag == "Grabbable")
+                {
+                    transform.forward = -hit.normal;
+                    currentGrabbedItem = hit.collider.gameObject.GetComponent<Grabbable>();
+                    Grab();
+                }
+
+            }
+        }
+        else if (grabAxis < 0.1f && grabbing)
+            ReleaseGrab();
+    }
+
+    void EmoteInputs()
+    {
+
+        Vector2 arrows = new Vector2(Input.GetAxis("HorizontalArrow"), Input.GetAxis("VerticalArrow"));
+
+        if(!CheckIsEmoteActive())
+        if (arrows.x > 0.1f)
+            emotes[(int)EMOTETYPE.YES].GetComponent<Emote>().Show();
+        else if (arrows.x < -0.1f)
+            emotes[(int)EMOTETYPE.NO].GetComponent<Emote>().Show();
+        else if (arrows.y < -0.1f)
+            emotes[(int)EMOTETYPE.HERE].GetComponent<Emote>().Show();
+        else if (arrows.y > 0.1f)
+            emotes[(int)EMOTETYPE.JUMP].GetComponent<Emote>().Show();
     }
 }
