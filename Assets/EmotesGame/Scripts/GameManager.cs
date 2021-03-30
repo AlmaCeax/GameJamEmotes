@@ -63,7 +63,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
                 GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, Quaternion.identity, 0);
-                vCam.LookAt = localObject.transform;
+                //vCam.LookAt = localObject.transform;
+                if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+                    vCam.transform.rotation = Quaternion.Euler( 10, 161.744f, 0);
                 vCam.Follow = localObject.transform;
                 vCam.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = paths[PhotonNetwork.LocalPlayer.ActorNumber - 1];
             }
