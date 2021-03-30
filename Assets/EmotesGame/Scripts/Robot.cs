@@ -97,8 +97,17 @@ public class Robot : MonoBehaviour
 
             }
         }
-        else if (grabAxis < 0.1f && grabbing)
-            ReleaseGrab();
+        
+        if (grabbing && grabAxis > 0.1f)
+        {
+            RaycastHit hit;
+
+            if (!Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out hit, 0.5f))
+                ReleaseGrab();
+
+        }
+        else if(grabbing)
+           ReleaseGrab();
     }
 
     void EmoteInputs()
