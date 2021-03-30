@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Hashtable props = new Hashtable
-            {
-                {EmotesGame.PLAYER_LOADED_LEVEL, true}
-            };
+        {
+            {EmotesGame.PLAYER_LOADED_LEVEL, true}
+        };
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
 

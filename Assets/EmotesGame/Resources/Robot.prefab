@@ -1828,7 +1828,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6298903862148331471}
-  - component: {fileID: -7243292714010512091}
   m_Layer: 3
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -1854,28 +1853,6 @@ Transform:
   m_Father: {fileID: 1961987773722367835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7243292714010512091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420279430431911610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf20e91b3b91f9e47bdf646462e60192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabInstanceId: 0
-  toggle: 0
-  component: {fileID: 0}
-  _gameObject: {fileID: 1420279430431911610}
-  _renderer: {fileID: 0}
-  stateLogic:
-    operation: 1
-    stateMask: 1
-    notMask: 0
-  currentState: -1
 --- !u!1 &1550961254671326606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3628,7 +3605,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7745031553509713494}
   - component: {fileID: 7343290957349947493}
-  - component: {fileID: -8038196817445452283}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
@@ -3732,28 +3708,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0072622, y: 0.443928, z: 0.007861815}
     m_Extent: {x: 0.54107475, y: 0.6807853, z: 0.22044185}
   m_DirtyAABB: 0
---- !u!114 &-8038196817445452283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884714692908838694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf20e91b3b91f9e47bdf646462e60192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabInstanceId: 0
-  toggle: 0
-  component: {fileID: 0}
-  _gameObject: {fileID: 7884714692908838694}
-  _renderer: {fileID: 7343290957349947493}
-  stateLogic:
-    operation: 1
-    stateMask: 1
-    notMask: 0
-  currentState: -1
 --- !u!1 &8334578285554461643
 GameObject:
   m_ObjectHideFlags: 0

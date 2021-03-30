@@ -63,8 +63,10 @@ public class Robot : MonoBehaviour
     {
         state = STATE.GRABBING;
         grabbing = true;
+        if(!currentGrabbedItem.pView.AmOwner)
+            currentGrabbedItem.pView.TransferOwnership(PhotonNetwork.LocalPlayer);
+
         currentGrabbedItem.grabbed = true;
-        currentGrabbedItem.pView.TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 
     void ReleaseGrab()
