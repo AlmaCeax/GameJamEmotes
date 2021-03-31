@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Robot player1;
     public Robot player2;
     public PhotonView pView;
