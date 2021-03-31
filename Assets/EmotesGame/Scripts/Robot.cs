@@ -155,4 +155,23 @@ public class Robot : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        foreach (GameObject e in emotes)
+        {
+            e.GetComponent<Emote>().isVisible = false;
+            e.GetComponent<Emote>().exitedPosition = e.gameObject.transform.position;
+        }
+        Debug.Log("Invisible");
+    }
+    private void OnBecameVisible()
+    {
+        foreach (GameObject e in emotes)
+        {
+            e.GetComponent<Emote>().isVisible = true;
+            e.GetComponent<Emote>().exitedPosition = Vector3.zero;
+        }
+        Debug.Log("Visible");
+    }
 }
