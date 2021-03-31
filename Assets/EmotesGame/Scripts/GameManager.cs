@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         float timer = 5.0f;
         finishing = true;
-
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable { { EmotesGame.PLAYER_SPAWN_INDEX, 0 } });
         while (timer > 0.0f)
         {
             //InfoText.text = string.Format("Player {0} won with {1} points.\n\n\nReturning to login screen in {2} seconds.", winner, score, timer.ToString("n2"));
@@ -231,7 +231,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer -= Time.deltaTime;
         }
 
-        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable { { EmotesGame.PLAYER_SPAWN_INDEX, 0 } });
         if (PhotonNetwork.IsMasterClient)
         {
             object obj;
