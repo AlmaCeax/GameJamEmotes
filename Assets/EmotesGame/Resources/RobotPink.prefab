@@ -7,6 +7,186 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518046, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825379518051, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118213, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825600118214, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393743, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825724393744, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234825842195129, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940619, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826202940620, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060464, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634234826826060465, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1438654112281544293, guid: dbbae213d0edda046b2fa43ebff3f6a7,
         type: 3}
       propertyPath: m_RootOrder

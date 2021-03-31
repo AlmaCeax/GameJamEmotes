@@ -10,13 +10,22 @@ public class Emote : MonoBehaviour
     public bool isActive = false;
     public float activeTime = 3.0f;
     public PhotonView pView;
+    public bool isVisible = true;
+    Vector3 exitedPosition;
 
     // Update is called once per frame
     void Update()
     {
         if (isActive)
         {
-            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+            if(pView.Owner.IsLocal)
+                transform.LookAt(Camera.main.transform);
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+                if (!isVisible)
+                    RepositionEmote();
+            }
         }
     }
 
@@ -24,14 +33,28 @@ public class Emote : MonoBehaviour
     public void Show()
     {
         isActive = true;
-        gameObject.SetActive(true);
+        GetComponent<Image>().color = Color.white;
         Invoke("Hide", activeTime);
     }
 
     public void Hide()
     {
         isActive = false;
-        gameObject.SetActive(false);
+        GetComponent<Image>().color = Color.clear;
     }
 
+    private void RepositionEmote()
+    {
+        transform.position = exitedPosition;
+    }
+
+    private void OnBecameInvisible()
+    {
+        isVisible = false;
+        exitedPosition = transform.position;
+    }
+    private void OnBecameVisible()
+    {
+        isVisible = true;
+    }
 }
