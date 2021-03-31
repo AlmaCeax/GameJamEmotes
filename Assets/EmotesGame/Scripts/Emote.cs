@@ -22,11 +22,8 @@ public class Emote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pView.Owner.IsLocal)
-            transform.LookAt(Camera.main.transform);
-        else
+        if (!pView.Owner.IsLocal)
         {
-            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
 
             Plane[] cameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
             Bounds bounds = playerMesh.GetComponent<Renderer>().bounds;
@@ -49,6 +46,13 @@ public class Emote : MonoBehaviour
                 RepositionEmote();
             
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(Camera.main.transform, new Vector3(0, 1, 0));
+        var curr = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(0, curr.y + 180f, 0);
     }
 
     [PunRPC]

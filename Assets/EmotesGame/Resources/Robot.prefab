@@ -186,9 +186,9 @@ MonoBehaviour:
   isActive: 0
   activeTime: 3
   pView: {fileID: 4236689992010870472}
-  isVisible: 1
+  wasVisible: 1
   exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  cameraExitedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &4236689992010870472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,9 +304,9 @@ MonoBehaviour:
   isActive: 0
   activeTime: 3
   pView: {fileID: 7328735044132147157}
-  isVisible: 1
+  wasVisible: 1
   exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  cameraExitedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7328735044132147157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,9 +422,9 @@ MonoBehaviour:
   isActive: 0
   activeTime: 3
   pView: {fileID: 8858066676039459042}
-  isVisible: 1
+  wasVisible: 1
   exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  cameraExitedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8858066676039459042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
   isActive: 0
   activeTime: 3
   pView: {fileID: 6480116750911550363}
-  isVisible: 1
+  wasVisible: 1
   exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  cameraExitedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6480116750911550363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,9 +784,9 @@ MonoBehaviour:
   isActive: 0
   activeTime: 3
   pView: {fileID: 1884933560917542471}
-  isVisible: 1
+  wasVisible: 1
   exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  cameraExitedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &983128348440159201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1783,16 @@ MonoBehaviour:
     enableIfOwned: 0
   - component: {fileID: 7542244594464212337}
     enableIfOwned: 1
+  - component: {fileID: 0}
+    enableIfOwned: 1
+  - component: {fileID: 0}
+    enableIfOwned: 1
+  - component: {fileID: 0}
+    enableIfOwned: 1
+  - component: {fileID: 0}
+    enableIfOwned: 1
+  - component: {fileID: 0}
+    enableIfOwned: 1
   componentLookup:
   - {fileID: 7004584296649431883}
   - {fileID: 634234826190620134}
@@ -1806,6 +1816,11 @@ MonoBehaviour:
   - {fileID: 9088781092945614842}
   - {fileID: 9088781091767748866}
   - {fileID: 7542244594464212337}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5503500940629134616
 MonoBehaviour:
   m_ObjectHideFlags: 0
