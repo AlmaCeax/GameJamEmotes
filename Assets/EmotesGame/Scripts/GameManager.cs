@@ -14,15 +14,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     #region Public Fields
     static public GameManager Instance;
-
-    internal void RespawnPlayer(Player player, Robot robot)
-    {
-        int spawnIndex = (int)player.CustomProperties["spawnIndex"];
-        robot.GetComponent<SyncTransform>().FlagTeleport();
-        robot.movement.controller.enabled = false;
-        robot.transform.position = spawnPoints[player.ActorNumber - 1][spawnIndex].position;
-        robot.movement.controller.enabled = true;
-    }
+    public Robot player1 = null;
+    public Robot player2 = null;
     #endregion
 
     #region Private Fields
@@ -100,11 +93,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             }*/
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    internal void RespawnPlayer(Player player, Robot robot)
     {
-        
+        int spawnIndex = (int)player.CustomProperties["spawnIndex"];
+        robot.GetComponent<SyncTransform>().FlagTeleport();
+        robot.movement.controller.enabled = false;
+        robot.transform.position = spawnPoints[player.ActorNumber - 1][spawnIndex].position;
+        robot.movement.controller.enabled = true;
     }
 
     private bool CheckAllPlayerLoadedLevel()

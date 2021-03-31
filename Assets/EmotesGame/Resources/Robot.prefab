@@ -396,7 +396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2be9de7c8d100754d84f22fdda9064bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31a068c0f9e9d654dba6c1ac51a8b147, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   state: 0
   currentGrabbedItem: {fileID: 0}
   armControl: {fileID: 9088781093335913162}
-  pView: {fileID: 0}
+  pView: {fileID: 1673890835363151194}
   movement: {fileID: 0}
 --- !u!114 &2839067669579228916
 MonoBehaviour:
