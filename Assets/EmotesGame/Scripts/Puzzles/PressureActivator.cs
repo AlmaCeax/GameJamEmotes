@@ -9,6 +9,8 @@ public class PressureActivator : MonoBehaviour
     public float pressureDisplacement = 0.5f;
     public PhotonView pView;
 
+    int pressed = 0;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!pView.IsMine)
@@ -18,7 +20,7 @@ public class PressureActivator : MonoBehaviour
                 return;
         }
 
-        pView.RPC("OnStep", RpcTarget.All, true);
+        pView.RPC("OnStep", RpcTarget.All);
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,14 +32,32 @@ public class PressureActivator : MonoBehaviour
                 return;
         }
 
-        pView.RPC("OnStep", RpcTarget.All, false);
+        pView.RPC("OnUnStep", RpcTarget.All);
     }
 
     [PunRPC]
-    public void OnStep(bool mode)
+    public void OnStep()
     {
-        puzzle.Active = mode;
-        Vector3 movement = mode ? Vector3.down * pressureDisplacement : -Vector3.down * pressureDisplacement;
-        transform.position = transform.position + movement;
+        if (pressed == 0)
+        {
+            puzzle.Active = true;
+            Vector3 movement = Vector3.down * pressureDisplacement;
+            transform.position = transform.position + movement;
+        }
+
+        pressed++;
+    }
+
+    [PunRPC]
+    public void OnUnStep()
+    {
+        pressed--;
+
+        if(pressed == 0)
+        {
+            puzzle.Active = false;
+            Vector3 movement = -Vector3.down * pressureDisplacement;
+            transform.position = transform.position + movement;
+        }
     }
 }
