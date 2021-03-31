@@ -38,9 +38,6 @@ public class PressureActivator : MonoBehaviour
     [PunRPC]
     public void OnStep(bool mode)
     {
-        if (pressed)
-            return;
-
         puzzle.Active = mode;
         Vector3 movement = mode ? Vector3.down * pressureDisplacement : -Vector3.down * pressureDisplacement;
         transform.position = transform.position + movement;
