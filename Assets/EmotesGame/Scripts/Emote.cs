@@ -61,6 +61,10 @@ public class Emote : MonoBehaviour
         enabled = true;
         isActive = true;
         GetComponent<Image>().color = Color.white;
+
+        if (IsInvoking("Hide"))
+            CancelInvoke("Hide");
+
         Invoke("Hide", activeTime);
     }
 

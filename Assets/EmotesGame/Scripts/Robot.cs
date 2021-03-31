@@ -67,14 +67,15 @@ public class Robot : MonoBehaviour
         EmoteInputs();
     }
 
-    bool CheckIsEmoteActive()
+    void HideActiveEmotes()
     {
         foreach (Emote e in emotes)
         {
             if (e.isActive)
-                return true;
+            {
+                e.Hide();
+            }
         }
-        return false;
     }
 
     void Grab()
@@ -137,15 +138,19 @@ public class Robot : MonoBehaviour
     {
         Vector2 arrows = new Vector2(Input.GetAxis("HorizontalArrow"), Input.GetAxis("VerticalArrow"));
 
-        if(!CheckIsEmoteActive())
-        if (arrows.x > 0.1f)
-            emotes[(int)EMOTETYPE.YES].pView.RPC("Show", RpcTarget.All);
-        else if (arrows.x < -0.1f)
-            emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
-        else if (arrows.y < -0.1f)
-            emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
-        else if (arrows.y > 0.1f)
-            emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
+        if (arrows != Vector2.zero)
+        {
+            HideActiveEmotes();
+
+            if (arrows.x > 0.1f)
+                emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
+            else if (arrows.x < -0.1f)
+                emotes[(int)EMOTETYPE.YES].pView.RPC("Show", RpcTarget.All);
+            else if (arrows.y < -0.1f)
+                emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
+            else if (arrows.y > 0.1f)
+                emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
+        }
     }
 
     IEnumerator GrabAnimation()
