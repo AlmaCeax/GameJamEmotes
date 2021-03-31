@@ -153,11 +153,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        /*if (changedProps.ContainsKey(AsteroidsGame.PLAYER_LIVES))
+        if (changedProps.ContainsKey(EmotesGame.PLAYER_REACHED_END))
         {
             CheckEndOfGame();
             return;
-        }*/
+        }
 
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -185,7 +185,87 @@ public class GameManager : MonoBehaviourPunCallbacks
                 InfoText.text = "Waiting for other players...";
             }
         }*/
+    }
 
+    private void CheckEndOfGame()
+    {
+        bool allReached = true;
+
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            object hasReached;
+            if (p.CustomProperties.TryGetValue(EmotesGame.PLAYER_REACHED_END, out hasReached))
+            {
+                if (!(bool)hasReached)
+                {
+                    allReached = false;
+                    break;
+                }
+            }
+        }
+
+        if (allReached)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                StopAllCoroutines();
+            }
+
+            StartCoroutine(EndOfGame());
+        }
+    }
+
+    private IEnumerator EndOfGame()
+    {
+        float timer = 5.0f;
+        Robot.LocalPlayerInstance.movement.enabled = false;
+        //make robot dance
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable { { EmotesGame.PLAYER_SPAWN_INDEX, 0 } });
+
+        while (timer > 0.0f)
+        {
+            //InfoText.text = string.Format("Player {0} won with {1} points.\n\n\nReturning to login screen in {2} seconds.", winner, score, timer.ToString("n2"));
+            //We can show text here
+
+            yield return new WaitForEndOfFrame();
+
+            timer -= Time.deltaTime;
+        }
+
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            object obj;
+            PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(EmotesGame.CURRENT_LEVEL, out obj);
+            int currentLevel = (int)obj;
+            currentLevel++;
+
+            Hashtable props = new Hashtable
+            {
+                {EmotesGame.CURRENT_LEVEL, currentLevel}
+            };
+
+            PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+            PhotonNetwork.LoadLevel(currentLevel);
+        }
+    }
+
+    internal void OnReachFinishLine(Player localPlayer)
+    {
+        Hashtable props = new Hashtable
+        {
+            {EmotesGame.PLAYER_REACHED_END, true}
+        };
+        localPlayer.SetCustomProperties(props);
+    }
+
+    internal void OnLeaveFinishLine(Player localPlayer)
+    {
+        Hashtable props = new Hashtable
+        {
+            {EmotesGame.PLAYER_REACHED_END, false}
+        };
+        localPlayer.SetCustomProperties(props);
     }
 
     #endregion

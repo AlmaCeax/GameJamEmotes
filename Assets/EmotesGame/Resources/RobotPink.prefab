@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 1782564425035816159, guid: dbbae213d0edda046b2fa43ebff3f6a7,
         type: 3}
       propertyPath: m_Name
-      value: RobotAnimation
+      value: RobotPink
       objectReference: {fileID: 0}
     - target: {fileID: 7864935380305140059, guid: dbbae213d0edda046b2fa43ebff3f6a7,
         type: 3}

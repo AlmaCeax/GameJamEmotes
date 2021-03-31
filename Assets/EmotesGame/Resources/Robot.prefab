@@ -456,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &634234825842195126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ GameObject:
   - component: {fileID: 9088781093087554623}
   - component: {fileID: 9088781093087554622}
   m_Layer: 3
-  m_Name: RobotAnimation
+  m_Name: Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipWhenEmpty: 0
-  ignoreNonControllerUpdates: 1
+  ignoreNonControllerUpdates: 0
   resimulateLateArrivals: 1
 --- !u!114 &2260506541158780538
 MonoBehaviour:

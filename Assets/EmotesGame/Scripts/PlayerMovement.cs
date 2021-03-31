@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
                 playerSpeed = grabbingSpeed;
                 move = Vector3.Dot(transform.forward, move) * transform.forward;
                 anim.SetFloat("GrabSpeed", Vector3.Dot(transform.forward, move));
-                Debug.Log(Vector3.Dot(transform.forward, move));
                 break;
             default:
                 break;

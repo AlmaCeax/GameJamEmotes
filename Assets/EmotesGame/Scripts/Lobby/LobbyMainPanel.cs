@@ -98,7 +98,12 @@ namespace Photon.Pun.Demo.Asteroids
         {
             string roomName = "Room " + Random.Range(1000, 10000);
 
-            RoomOptions options = new RoomOptions {MaxPlayers = 8};
+            RoomOptions options = new RoomOptions {MaxPlayers = 2};
+            Hashtable hash = new Hashtable
+            {
+                {EmotesGame.CURRENT_LEVEL, 1}
+            };
+            options.CustomRoomProperties = hash;
 
             PhotonNetwork.CreateRoom(roomName, options, null);
         }
@@ -226,6 +231,11 @@ namespace Photon.Pun.Demo.Asteroids
             maxPlayers = (byte) Mathf.Clamp(maxPlayers, 2, 8);
 
             RoomOptions options = new RoomOptions {MaxPlayers = maxPlayers, PlayerTtl = 10000 };
+            Hashtable hash = new Hashtable
+            {
+                {EmotesGame.CURRENT_LEVEL, 1}
+            };
+            options.CustomRoomProperties = hash;
 
             PhotonNetwork.CreateRoom(roomName, options, null);
         }
@@ -272,7 +282,9 @@ namespace Photon.Pun.Demo.Asteroids
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
 
-            PhotonNetwork.LoadLevel(1);
+            object levelIndex;
+            PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(EmotesGame.CURRENT_LEVEL, out levelIndex);
+            PhotonNetwork.LoadLevel((int)levelIndex);
         }
 
         #endregion
