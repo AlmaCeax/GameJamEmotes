@@ -67,7 +67,8 @@ public class Robot : MonoBehaviour
         EmoteInputs();
     }
 
-    void HideActiveEmotes()
+    [PunRPC]
+    public void HideActiveEmotes()
     {
         foreach (Emote e in emotes)
         {
@@ -140,7 +141,7 @@ public class Robot : MonoBehaviour
 
         if (arrows != Vector2.zero)
         {
-            HideActiveEmotes();
+            pView.RPC("HideActiveEmotes", RpcTarget.All);
 
             if (arrows.x > 0.1f)
                 emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
