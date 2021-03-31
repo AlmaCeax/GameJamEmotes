@@ -48,6 +48,7 @@ public class PressureActivator : MonoBehaviour
         pressed++;
     }
 
+    [PunRPC]
     public void OnUnStep()
     {
         pressed--;
