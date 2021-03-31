@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            anim.SetBool("Dancing", false);
             anim.SetFloat("Speed", move.magnitude);
             if(player.state == Robot.STATE.NONE)
                 gameObject.transform.forward = move;

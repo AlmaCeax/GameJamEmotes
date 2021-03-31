@@ -924,7 +924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782564425035816159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7040545, y: 0.00000011920929, z: -2.1938515}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6892603675890165489}
@@ -1013,6 +1013,7 @@ MonoBehaviour:
   playerMaxSpeed: 5
   jumpHeight: 1
   gravityValue: -20
+  maxGravity: -10
 --- !u!114 &634234826190620132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   armControl: {fileID: 9088781093335913162}
   pView: {fileID: 1673890835363151194}
   movement: {fileID: 0}
+  emotes: []
 --- !u!114 &2839067669579228916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,9 +1075,11 @@ MonoBehaviour:
   - Base Layer.Fall
   - Grabbing
   - Base Layer.Grabbing
+  - Dance
+  - Base Layer.Dance
   sharedTransNames: []
   sharedTriggIndexes: 
-  sharedStateIndexes: c0de6f33da4f55d928a981077af3fe2e3270625b602a1d72b85056e3a2c16c09
+  sharedStateIndexes: c0de6f33da4f55d928a981077af3fe2e3270625b602a1d72b85056e3a2c16c096bd28ad9e99dc65c
   animator: {fileID: 7004584296649431883}
   autoRootMotion: 1
   syncPassThrus: 1

@@ -19,7 +19,7 @@ public class Robot : MonoBehaviour
     public PhotonView pView;
     public PlayerMovement movement;
 
-    private Emote[] emotes;
+    public Emote[] emotes;
     private GameObject emoteCanvas;
     internal static Robot LocalPlayerInstance;
 
@@ -62,6 +62,9 @@ public class Robot : MonoBehaviour
         {
             return;
         }
+
+        if (Input.anyKeyDown)
+            anim.SetBool("Dancing", false);
 
         CheckGrabbables();
         EmoteInputs();
@@ -151,6 +154,15 @@ public class Robot : MonoBehaviour
                 emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
             else if (arrows.y > 0.1f)
                 emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
+        }
+
+        if (Input.GetButtonDown("LeftBump"))
+        {
+            pView.RPC("HideActiveEmotes", RpcTarget.All);
+
+            emotes[(int)EMOTETYPE.DANCE].pView.RPC("Show", RpcTarget.All);
+
+            anim.SetBool("Dancing", true);
         }
     }
 
