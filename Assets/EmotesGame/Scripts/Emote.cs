@@ -13,24 +13,27 @@ public class Emote : MonoBehaviour
     public bool isVisible = true;
     public Vector3 exitedPosition;
     public Vector3 originalPosition;
+    private GameObject playerMesh;
 
     private void Start()
     {
         originalPosition = transform.position;
+        playerMesh = transform.parent.parent.GetChild(1).gameObject;
     }
     // Update is called once per frame
     void Update()
     {
-        if (isActive)
+        Plane[] cameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        Bounds bounds = playerMesh.GetComponent<Renderer>().bounds;
+        bool inBounds = GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, bounds);
+        if(pView.Owner.IsLocal)
+            transform.LookAt(Camera.main.transform);
+        else
         {
-            if(pView.Owner.IsLocal)
-                transform.LookAt(Camera.main.transform);
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
-                if (!isVisible)
-                    RepositionEmote();
-            }
+            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+            if (!isVisible)
+                RepositionEmote();
+            
         }
     }
 
