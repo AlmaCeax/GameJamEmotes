@@ -123,7 +123,7 @@ public class Robot : MonoBehaviour
             RaycastHit hit;
 
             if (!Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out hit, 0.5f))
-                if (hit.collider.gameObject.tag == "Grabbable")
+                if (hit.collider.gameObject.tag != "Grabbable")
                     ReleaseGrab();
 
         }
