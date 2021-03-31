@@ -68,8 +68,8 @@ public class PointsPuzzle : MonoBehaviour
         //calculate position and tangent
         Vector3 tangent;
         Vector3 nextPosition = curve.CalcPositionAndTangentByDistance(distance, out tangent);
-        pMovement.pView.RPC("Move", RpcTarget.All, nextPosition - platform.position);
-        //pMovement.Move(nextPosition - platform.position);
+        //pMovement.pView.RPC("Move", RpcTarget.All, nextPosition - platform.position);
+        pMovement.Move(nextPosition - platform.position);
         platform.rotation = Quaternion.LookRotation(tangent);
     }
 }

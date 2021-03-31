@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4662612704069800195}
   - component: {fileID: 2899842928734429559}
   - component: {fileID: 8078233435527689291}
+  - component: {fileID: 8551024460281458041}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -207,7 +208,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2140859233}
+  - {fileID: 8551024460281458041}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -270,6 +271,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408744071e0fba841bc48cb579c7d244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8551024460281458041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105798885759343647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &6105798885905106921
 GameObject:
   m_ObjectHideFlags: 0

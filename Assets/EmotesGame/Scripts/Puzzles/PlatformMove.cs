@@ -9,6 +9,23 @@ public class PlatformMove : MonoBehaviour
     public Robot player1;
     public Robot player2;
     public PhotonView pView;
+    private Vector3 lastPosition;
+
+    public void LateUpdate()
+    {
+        if(!pView.IsMine)
+        {
+            if (lastPosition != transform.position)
+            {
+                if (player1 && player1.pView.IsMine)
+                    player1.movement.controller.Move(transform.position - lastPosition);
+                if (player2 && player2.pView.IsMine)
+                    player2.movement.controller.Move(transform.position - lastPosition);
+            }
+
+            lastPosition = transform.position;
+        }
+    }
 
     [PunRPC]
     public void Move(Vector3 movementVector)

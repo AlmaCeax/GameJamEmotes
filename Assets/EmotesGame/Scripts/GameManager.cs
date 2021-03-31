@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Photon.Pun;
+using Photon.Pun.Simple;
 using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
 using Cinemachine;
+using System;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
     #region Public Fields
     static public GameManager Instance;
-    public Robot player1 = null;
-    public Robot player2 = null;
+
+    internal void RespawnPlayer(Player player, Robot robot)
+    {
+        int spawnIndex = (int)player.CustomProperties["spawnIndex"];
+        robot.GetComponent<SyncTransform>().FlagTeleport();
+        robot.movement.controller.enabled = false;
+        robot.transform.position = spawnPoints[player.ActorNumber - 1][spawnIndex].position;
+        robot.movement.controller.enabled = true;
+    }
     #endregion
 
     #region Private Fields
@@ -27,7 +36,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     [Tooltip("The spawn points of each player")]
     [SerializeField]
-    private Transform[] spawnPoints;
+    private Transform[] spawnParents;
+    private Transform[][] spawnPoints;
 
     [Tooltip("Virtual Camera")]
     [SerializeField]
@@ -39,6 +49,18 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instance = this;
+
+        spawnPoints = new Transform[2][];
+        spawnPoints[0] = new Transform[spawnParents[0].childCount];
+        spawnPoints[1] = new Transform[spawnParents[1].childCount];
+        for (int i = 0; i < spawnPoints[0].Length; ++i)
+        {
+            spawnPoints[0][i] = spawnParents[0].GetChild(i);
+        }
+        for (int i = 0; i < spawnPoints[1].Length; ++i)
+        {
+            spawnPoints[1][i] = spawnParents[1].GetChild(i);
+        }  
     }
     // Start is called before the first frame update
     void Start()
@@ -61,8 +83,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
+                int spawnIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["spawnIndex"];
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, Quaternion.identity, 0);
+                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1][spawnIndex].position, Quaternion.identity, 0);
                 //vCam.LookAt = localObject.transform;
                 if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
                     vCam.transform.rotation = Quaternion.Euler( 10, 161.744f, 0);
