@@ -98,10 +98,12 @@ public class CereMultiPlatformMove : MonoBehaviour
     [PunRPC]
     public void OnPlatformEnter(Player player)
     {
+        int playerNumber = (int)player.CustomProperties[EmotesGame.PLAYER_NUMBER];
+
         if (player1 == null)
-            player1 = player.ActorNumber == 1 ? GameManager.Instance.player1 : GameManager.Instance.player2;
+            player1 = playerNumber == 0 ? GameManager.Instance.player1 : GameManager.Instance.player2;
         else if (player2 == null)
-            player2 = player.ActorNumber == 1 ? GameManager.Instance.player1 : GameManager.Instance.player2;
+            player2 = playerNumber == 0 ? GameManager.Instance.player1 : GameManager.Instance.player2;
 
 
         if (player1 && player2)
@@ -114,7 +116,10 @@ public class CereMultiPlatformMove : MonoBehaviour
     [PunRPC]
     public void OnPlatformExit(Player player)
     {
-        Robot exitRobot = player.ActorNumber == 1 ? GameManager.Instance.player1 : GameManager.Instance.player2;
+        int playerNumber = (int)player.CustomProperties[EmotesGame.PLAYER_NUMBER];
+
+        Robot exitRobot = playerNumber == 0 ? GameManager.Instance.player1 : GameManager.Instance.player2;
+
         if (player1 == exitRobot)
             player1 = null;
         else if (player2 == exitRobot)

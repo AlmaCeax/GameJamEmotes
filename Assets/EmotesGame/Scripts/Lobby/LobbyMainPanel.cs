@@ -141,7 +141,8 @@ namespace Photon.Pun.Demo.Asteroids
 
             Hashtable props = new Hashtable
             {
-                {AsteroidsGame.PLAYER_LOADED_LEVEL, false}
+                {EmotesGame.PLAYER_LOADED_LEVEL, false},
+                {EmotesGame.PLAYER_NUMBER, PhotonNetwork.IsMasterClient? 0:1}
             };
             PhotonNetwork.LocalPlayer.SetCustomProperties(props);
         }

@@ -10,6 +10,7 @@ public class EmotesGame
     public const string PLAYER_SPAWN_INDEX = "spawnIndex";
     public const string PLAYER_REACHED_END = "reachedEnd";
     public const string CURRENT_LEVEL = "currentLevel";
+    public const string PLAYER_NUMBER = "playerNumber";
 
     public static Color GetColor(int colorChoice)
     {

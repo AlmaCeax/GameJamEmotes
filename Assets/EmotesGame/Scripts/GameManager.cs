@@ -77,14 +77,16 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-                int spawnIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["spawnIndex"];
+                int spawnIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties[EmotesGame.PLAYER_SPAWN_INDEX];
+                int playerNumber = (int)PhotonNetwork.LocalPlayer.CustomProperties[EmotesGame.PLAYER_NUMBER];
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[PhotonNetwork.LocalPlayer.ActorNumber - 1].name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1][spawnIndex].position, Quaternion.identity, 0);
+                GameObject localObject = PhotonNetwork.Instantiate(this.playerPrefabs[playerNumber].name, spawnPoints[playerNumber][spawnIndex].position, Quaternion.identity, 0);
                 //vCam.LookAt = localObject.transform;
-                if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+                if (playerNumber == 1)
                     vCam.transform.rotation = Quaternion.Euler( 10, 161.744f, 0);
+
                 vCam.Follow = localObject.transform;
-                vCam.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = paths[PhotonNetwork.LocalPlayer.ActorNumber - 1];
+                vCam.GetCinemachineComponent<CinemachineTrackedDolly>().m_Path = paths[playerNumber];
             }
            /* else
             {
@@ -95,10 +97,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     internal void RespawnPlayer(Player player, Robot robot)
     {
-        int spawnIndex = (int)player.CustomProperties["spawnIndex"];
+        int spawnIndex = (int)player.CustomProperties[EmotesGame.PLAYER_SPAWN_INDEX];
+        int playerNumber = (int)player.CustomProperties[EmotesGame.PLAYER_NUMBER];
         robot.GetComponent<SyncTransform>().FlagTeleport();
         robot.movement.controller.enabled = false;
-        robot.transform.position = spawnPoints[player.ActorNumber - 1][spawnIndex].position;
+        robot.transform.position = spawnPoints[playerNumber][spawnIndex].position;
         robot.movement.controller.enabled = true;
     }
 
