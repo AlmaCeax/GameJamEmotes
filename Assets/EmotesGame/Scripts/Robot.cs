@@ -19,7 +19,7 @@ public class Robot : MonoBehaviour
     public PhotonView pView;
     public PlayerMovement movement;
 
-    private GameObject[] emotes;
+    private Emote[] emotes;
     private GameObject emoteCanvas;
     internal static Robot LocalPlayerInstance;
 
@@ -36,11 +36,12 @@ public class Robot : MonoBehaviour
 
     private void Start()
     {
-        emotes = new GameObject[5];
+        emotes = new Emote[5];
         emoteCanvas = transform.GetChild(2).gameObject;
         for(int i = 0; i < 5; ++i)
         {
-            emotes[i] = emoteCanvas.transform.GetChild(i).gameObject;
+            emotes[i] = emoteCanvas.transform.GetChild(i).gameObject.GetComponent<Emote>();
+            emotes[i].enabled = true;
         }
 
         emoteCanvas.GetComponent<Canvas>().worldCamera = Camera.main.transform.GetChild(0).GetComponent<Camera>();
@@ -60,9 +61,9 @@ public class Robot : MonoBehaviour
 
     bool CheckIsEmoteActive()
     {
-        foreach (GameObject e in emotes)
+        foreach (Emote e in emotes)
         {
-            if (e.GetComponent<Emote>().isActive)
+            if (e.isActive)
                 return true;
         }
         return false;
@@ -127,13 +128,13 @@ public class Robot : MonoBehaviour
 
         if(!CheckIsEmoteActive())
         if (arrows.x > 0.1f)
-            emotes[(int)EMOTETYPE.YES].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
+            emotes[(int)EMOTETYPE.YES].pView.RPC("Show", RpcTarget.All);
         else if (arrows.x < -0.1f)
-            emotes[(int)EMOTETYPE.NO].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
+            emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
         else if (arrows.y < -0.1f)
-            emotes[(int)EMOTETYPE.HERE].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
+            emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
         else if (arrows.y > 0.1f)
-            emotes[(int)EMOTETYPE.JUMP].GetComponent<Emote>().pView.RPC("Show", RpcTarget.All);
+            emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
     }
 
     IEnumerator GrabAnimation()

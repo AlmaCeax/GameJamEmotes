@@ -110,8 +110,6 @@ GameObject:
   - component: {fileID: 3570159451949989749}
   - component: {fileID: 3570159451949989750}
   - component: {fileID: 3570159451949989753}
-  - component: {fileID: 3570159451949989752}
-  - component: {fileID: 3570159451949989751}
   m_Layer: 6
   m_Name: DraggingWalls
   m_TagString: Grabbable
@@ -150,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbed: 0
   playerDirection: {x: 0, y: 0, z: 0}
+  startPosition: {x: 0, y: 0, z: 0}
   pView: {fileID: 0}
 --- !u!54 &3570159451949989746
 Rigidbody:
@@ -219,48 +218,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &3570159451949989752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570159451949989745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e28cba854079b4ba6a6d08014af4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipWhenEmpty: 0
-  ignoreNonControllerUpdates: 1
-  resimulateLateArrivals: 1
---- !u!114 &3570159451949989751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570159451949989745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326ca22e88ea7334eb428d2d4f839599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabInstanceId: -113358
-  _applyOrder: 13
-  keyframeRate: 1
-  useDeltas: 1
-  _alwaysReady: 0
-  serializeThis: 1
-  initialState: 0
-  respawnState: 1
-  readyState: 1
-  unreadyState: 0
-  mountableTo:
-    mask: 15
-  autoReset: 1
-  autoOwnerChange: 1
-  mountReliable: 1
 --- !u!1 &3570159452445067148
 GameObject:
   m_ObjectHideFlags: 0

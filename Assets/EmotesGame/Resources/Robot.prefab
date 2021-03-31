@@ -680,8 +680,8 @@ GameObject:
   - component: {fileID: 634234826826060460}
   - component: {fileID: 634234826826060463}
   - component: {fileID: 634234826826060465}
-  - component: {fileID: 634234826826060462}
   - component: {fileID: 1884933560917542471}
+  - component: {fileID: 634234826826060462}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -746,25 +746,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &634234826826060462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634234826826060464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63506b5758061b54ba2511579c6d9bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emoteImage: {fileID: 0}
-  isActive: 0
-  activeTime: 3
-  pView: {fileID: 1884933560917542471}
-  isVisible: 1
-  exitedPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1884933560917542471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,6 +768,25 @@ MonoBehaviour:
   sceneViewId: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &634234826826060462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634234826826060464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63506b5758061b54ba2511579c6d9bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoteImage: {fileID: 0}
+  isActive: 0
+  activeTime: 3
+  pView: {fileID: 1884933560917542471}
+  isVisible: 1
+  exitedPosition: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &983128348440159201
 GameObject:
   m_ObjectHideFlags: 0

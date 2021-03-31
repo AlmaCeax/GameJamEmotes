@@ -40,6 +40,7 @@ public class Emote : MonoBehaviour
     [PunRPC]
     public void Show()
     {
+        enabled = true;
         isActive = true;
         GetComponent<Image>().color = Color.white;
         Invoke("Hide", activeTime);
