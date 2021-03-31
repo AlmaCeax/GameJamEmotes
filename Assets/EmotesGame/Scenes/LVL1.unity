@@ -7821,6 +7821,18 @@ PrefabInstance:
       objectReference: {fileID: 327053814}
     - target: {fileID: 8361347765749569925, guid: d131c3810d111e14780143fbf88ea276,
         type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 634234826190620132, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+    - target: {fileID: 8361347765749569925, guid: d131c3810d111e14780143fbf88ea276,
+        type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 4247303743068477861, guid: 6fe11e4f620012f44bc7be4bc0b2cf5c,
+        type: 3}
+    - target: {fileID: 8361347765749569925, guid: d131c3810d111e14780143fbf88ea276,
+        type: 3}
       propertyPath: paths.Array.data[0]
       value: 
       objectReference: {fileID: 1676558435}

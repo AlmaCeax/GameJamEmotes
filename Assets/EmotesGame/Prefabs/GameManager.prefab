@@ -46,8 +46,8 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   playerPrefabs:
-  - {fileID: 1184923686718787041, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
-  - {fileID: 1328553918336435811, guid: a10c5376770821b4b9600c93c5825d00, type: 3}
+  - {fileID: 1782564425035816159, guid: dbbae213d0edda046b2fa43ebff3f6a7, type: 3}
+  - {fileID: 3062664972804587678, guid: 6fe11e4f620012f44bc7be4bc0b2cf5c, type: 3}
   paths:
   - {fileID: 0}
   - {fileID: 0}
