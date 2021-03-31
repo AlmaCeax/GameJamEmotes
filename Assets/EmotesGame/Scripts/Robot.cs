@@ -30,6 +30,14 @@ public class Robot : MonoBehaviour
         pView = GetComponent<PhotonView>();
         movement = GetComponent<PlayerMovement>();
 
+        if(GameManager.Instance)
+        {
+            if (GameManager.Instance.player1 == null)
+                GameManager.Instance.player1 = this;
+            else if(GameManager.Instance.player2 == null)
+                GameManager.Instance.player2 = this;
+        }
+
         if (pView.IsMine)
             LocalPlayerInstance = this;
     }

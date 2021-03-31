@@ -1111,7 +1111,7 @@ MonoBehaviour:
   state: 0
   currentGrabbedItem: {fileID: 0}
   armControl: {fileID: 9088781093335913162}
-  pView: {fileID: 0}
+  pView: {fileID: 1673890835363151194}
   movement: {fileID: 0}
 --- !u!114 &2839067669579228916
 MonoBehaviour:
