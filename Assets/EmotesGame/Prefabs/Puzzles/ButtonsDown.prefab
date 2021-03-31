@@ -671,8 +671,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3465549775778857363}
-  - component: {fileID: 3465549775778857373}
   - component: {fileID: 3465549775778857372}
+  - component: {fileID: 3379575724419781293}
+  - component: {fileID: 3465549775778857373}
   m_Layer: 0
   m_Name: trigger1
   m_TagString: Untagged
@@ -694,6 +695,41 @@ Transform:
   m_Father: {fileID: 3465549774678017421}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3465549775778857372
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465549775778857362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3379575724419781293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465549775778857362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 0
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &3465549775778857373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,19 +746,6 @@ MonoBehaviour:
   up: 0
   offset: 0
   originalstate: 0
---- !u!135 &3465549775778857372
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3465549775778857362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3465549775832916156
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,8 +882,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3465549776052296124}
-  - component: {fileID: 3465549776052296126}
   - component: {fileID: 3465549776052296125}
+  - component: {fileID: 4964663062239286834}
+  - component: {fileID: 3465549776052296126}
   m_Layer: 0
   m_Name: trigger2
   m_TagString: Untagged
@@ -882,6 +906,41 @@ Transform:
   m_Father: {fileID: 3465549776062469943}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3465549776052296125
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465549776052296115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4964663062239286834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465549776052296115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &3465549776052296126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,19 +957,6 @@ MonoBehaviour:
   up: 0
   offset: 0
   originalstate: 0
---- !u!135 &3465549776052296125
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3465549776052296115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3465549776062469942
 GameObject:
   m_ObjectHideFlags: 0
