@@ -10,31 +10,49 @@ public class Emote : MonoBehaviour
     public bool isActive = false;
     public float activeTime = 3.0f;
     public PhotonView pView;
-    public bool isVisible = true;
+    public bool wasVisible = true;
     public Vector3 exitedPosition;
-    public Vector3 originalPosition;
+    public Vector3 cameraExitedPosition;
     private GameObject playerMesh;
 
     private void Start()
     {
-        originalPosition = transform.position;
         playerMesh = transform.parent.parent.GetChild(1).gameObject;
     }
     // Update is called once per frame
     void Update()
     {
-        Plane[] cameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        Bounds bounds = playerMesh.GetComponent<Renderer>().bounds;
-        bool inBounds = GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, bounds);
-        if(pView.Owner.IsLocal)
-            transform.LookAt(Camera.main.transform);
-        else
+        if (!pView.Owner.IsLocal)
         {
-            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+
+            Plane[] cameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+            Bounds bounds = playerMesh.GetComponent<Renderer>().bounds;
+            bool isVisible = GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, bounds);
+
+            if (wasVisible && !isVisible)
+            {
+                exitedPosition = transform.position;
+                cameraExitedPosition = Camera.main.transform.position;
+                wasVisible = false;
+            }
+
+            if (!wasVisible && isVisible)
+            {
+                transform.localPosition = Vector3.zero;
+                wasVisible = true;
+            }
+
             if (!isVisible)
                 RepositionEmote();
             
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.LookAt(Camera.main.transform, new Vector3(0, 1, 0));
+        var curr = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(0, curr.y + 180f, 0);
     }
 
     [PunRPC]
@@ -54,19 +72,9 @@ public class Emote : MonoBehaviour
 
     private void RepositionEmote()
     {
-        transform.position = Camera.main.transform.position + exitedPosition;
-        Debug.Log("Entro en reposition");
-    }
-
-    private void OnBecameInvisible()
-    {
-        isVisible = false;
-        exitedPosition = transform.position;
-        Debug.Log("Invisible");
-    }
-    private void OnBecameVisible()
-    {
-        isVisible = true;
-        Debug.Log("Visible");
+        if(exitedPosition.x > Camera.main.transform.position.x)
+            transform.position = exitedPosition + (Camera.main.transform.position - cameraExitedPosition) - new Vector3(2, 0, 0);
+        if (exitedPosition.x < Camera.main.transform.position.x)
+            transform.position = exitedPosition + (Camera.main.transform.position - cameraExitedPosition) + new Vector3(2, 0, 0);
     }
 }
