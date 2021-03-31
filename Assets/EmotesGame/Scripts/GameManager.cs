@@ -35,13 +35,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Tooltip("Virtual Camera")]
     [SerializeField]
     private CinemachineVirtualCamera vCam;
-
+    bool finishing = false;
     #endregion
 
 
     private void Awake()
     {
         Instance = this;
+        finishing = false;
 
         spawnPoints = new Transform[2][];
         spawnPoints[0] = new Transform[spawnParents[0].childCount];
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         int spawnIndex = (int)player.CustomProperties[EmotesGame.PLAYER_SPAWN_INDEX];
         int playerNumber = (int)player.CustomProperties[EmotesGame.PLAYER_NUMBER];
+
         robot.GetComponent<SyncTransform>().FlagTeleport();
         robot.movement.controller.enabled = false;
         robot.transform.position = spawnPoints[playerNumber][spawnIndex].position;
@@ -163,7 +165,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             return;
         }
 
-
         // if there was no countdown yet, the master client (this one) waits until everyone loaded the level and sets a timer start
         /*int startTimestamp;
         bool startTimeIsSet = CountdownTimer.TryGetStartTime(out startTimestamp);
@@ -188,6 +189,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void CheckEndOfGame()
     {
+        if (finishing)
+            return;
+
         bool allReached = true;
 
         foreach (Player p in PhotonNetwork.PlayerList)
@@ -217,21 +221,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     private IEnumerator EndOfGame()
     {
         float timer = 5.0f;
-        Robot.LocalPlayerInstance.movement.enabled = false;
-        //make robot dance
-        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable { { EmotesGame.PLAYER_SPAWN_INDEX, 0 } });
+        finishing = true;
 
         while (timer > 0.0f)
         {
             //InfoText.text = string.Format("Player {0} won with {1} points.\n\n\nReturning to login screen in {2} seconds.", winner, score, timer.ToString("n2"));
-            //We can show text here
-
             yield return new WaitForEndOfFrame();
 
             timer -= Time.deltaTime;
         }
 
-
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable { { EmotesGame.PLAYER_SPAWN_INDEX, 0 } });
         if (PhotonNetwork.IsMasterClient)
         {
             object obj;
