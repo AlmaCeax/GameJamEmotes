@@ -18,10 +18,14 @@ public class Emote : MonoBehaviour
     {
         if (isActive)
         {
-            transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
-
-            if (!pView.Owner.IsLocal && !isVisible)
-                RepositionEmote();
+            if(pView.Owner.IsLocal)
+                transform.LookAt(Camera.main.transform);
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+                if (!isVisible)
+                    RepositionEmote();
+            }
         }
     }
 
@@ -29,14 +33,14 @@ public class Emote : MonoBehaviour
     public void Show()
     {
         isActive = true;
-        gameObject.SetActive(true);
+        GetComponent<Image>().color = Color.white;
         Invoke("Hide", activeTime);
     }
 
     public void Hide()
     {
         isActive = false;
-        gameObject.SetActive(false);
+        GetComponent<Image>().color = Color.clear;
     }
 
     private void RepositionEmote()
@@ -47,7 +51,7 @@ public class Emote : MonoBehaviour
     private void OnBecameInvisible()
     {
         isVisible = false;
-        exitedPosition = new Vector3(transform.position.x + 1.0f, transform.position.y, transform.position.z);
+        exitedPosition = transform.position;
     }
     private void OnBecameVisible()
     {
