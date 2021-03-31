@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
     private float groundCheckerRadius = 0.1f;
+    public float maxGravity = 10.0f;
     private int groundLayerMask;
     private Camera currentCamera;
 
@@ -108,7 +109,9 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Fall", true);
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        if(playerVelocity.y >= maxGravity)
+            playerVelocity.y += gravityValue * Time.deltaTime;
+
         controller.Move(playerVelocity * Time.deltaTime);
     }
 }
