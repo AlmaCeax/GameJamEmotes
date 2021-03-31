@@ -17,6 +17,8 @@ public class Emote : MonoBehaviour
         if (isActive)
         {
             transform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.y, 0);
+            if (!pView.Owner.IsLocal && !IsVisible())
+                RepositionEmote();
         }
     }
 
@@ -32,6 +34,31 @@ public class Emote : MonoBehaviour
     {
         isActive = false;
         gameObject.SetActive(false);
+    }
+
+    private bool IsVisible()
+    {
+        Rect cameraRect = Camera.main.rect;
+        Rect emoteRect = GetComponent<Image>().rectTransform.rect;
+        if ((emoteRect.x >= cameraRect.x && emoteRect.x + emoteRect.width <= cameraRect.x + cameraRect.width
+            && emoteRect.y >= cameraRect.y && emoteRect.y + emoteRect.height <= cameraRect.y + cameraRect.height))
+            return true;
+        else
+            return false;
+    }
+
+    private void RepositionEmote()
+    {
+        Rect cameraRect = Camera.main.rect;
+        Rect emoteRect = GetComponent<Image>().rectTransform.rect;
+        if (emoteRect.x < cameraRect.x)
+            transform.position = new Vector3(cameraRect.x, transform.position.y, transform.position.z);
+        else if(emoteRect.x + emoteRect.width > cameraRect.x + cameraRect.width)
+            transform.position = new Vector3((cameraRect.x + cameraRect.width) - emoteRect.width, transform.position.y, transform.position.z);
+        else if (emoteRect.y < cameraRect.y)
+            transform.position = new Vector3(transform.position.x, cameraRect.y, transform.position.z);
+        else if (emoteRect.y + emoteRect.height > cameraRect.y + cameraRect.height)
+            transform.position = new Vector3(transform.position.x, (cameraRect.y + cameraRect.height) - emoteRect.height, transform.position.z);
     }
 
 }
