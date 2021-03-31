@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634234826190620134, guid: dbbae213d0edda046b2fa43ebff3f6a7,
+        type: 3}
+      propertyPath: maxGravity
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 1438654112281544293, guid: dbbae213d0edda046b2fa43ebff3f6a7,
         type: 3}
       propertyPath: m_RootOrder
