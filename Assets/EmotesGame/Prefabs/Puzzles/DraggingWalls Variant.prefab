@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 3570159451949989745, guid: d6b73011ebf335848b0c6511d5488212,
         type: 3}
       propertyPath: m_Name
-      value: DraggingWalls
+      value: DraggingWalls Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3570159451949989748, guid: d6b73011ebf335848b0c6511d5488212,
         type: 3}
@@ -71,6 +71,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570159452445067149, guid: d6b73011ebf335848b0c6511d5488212,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3570159452445067151, guid: d6b73011ebf335848b0c6511d5488212,
         type: 3}
