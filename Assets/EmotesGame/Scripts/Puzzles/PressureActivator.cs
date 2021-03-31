@@ -9,6 +9,8 @@ public class PressureActivator : MonoBehaviour
     public float pressureDisplacement = 0.5f;
     public PhotonView pView;
 
+    bool pressed = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!pView.IsMine)
@@ -36,8 +38,12 @@ public class PressureActivator : MonoBehaviour
     [PunRPC]
     public void OnStep(bool mode)
     {
+        if (pressed)
+            return;
+
         puzzle.Active = mode;
         Vector3 movement = mode ? Vector3.down * pressureDisplacement : -Vector3.down * pressureDisplacement;
         transform.position = transform.position + movement;
+        pressed = mode;
     }
 }
