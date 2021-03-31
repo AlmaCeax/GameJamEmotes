@@ -992,9 +992,11 @@ MonoBehaviour:
   - Base Layer.Jump
   - Fall
   - Base Layer.Fall
+  - Grabbing
+  - Base Layer.Grabbing
   sharedTransNames: []
   sharedTriggIndexes: 
-  sharedStateIndexes: c0de6f33da4f55d928a981077af3fe2e3270625b602a1d72
+  sharedStateIndexes: c0de6f33da4f55d928a981077af3fe2e3270625b602a1d72b85056e3a2c16c09
   animator: {fileID: 7635863581728328309}
   autoRootMotion: 1
   syncPassThrus: 1

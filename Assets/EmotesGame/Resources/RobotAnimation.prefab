@@ -321,6 +321,10 @@ PrefabInstance:
       propertyPath: armControl
       value: 
       objectReference: {fileID: 1814327335}
+    - target: {fileID: 2110958471, guid: f6eda5cbdab96c141a7907751588fb3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1184923686718787041, guid: f6eda5cbdab96c141a7907751588fb3e,
         type: 3}
       propertyPath: m_Name
@@ -335,6 +339,36 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneViewId
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateNames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateIndexes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateNames.Array.data[6]
+      value: Grabbing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateNames.Array.data[7]
+      value: Base Layer.Grabbing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateIndexes.Array.data[6]
+      value: -480882504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698894509697703748, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: sharedStateIndexes.Array.data[7]
+      value: 158122402
       objectReference: {fileID: 0}
     - target: {fileID: 1800172022419398291, guid: f6eda5cbdab96c141a7907751588fb3e,
         type: 3}
@@ -401,10 +435,25 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2340244839007807935, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3604848029742497782, guid: f6eda5cbdab96c141a7907751588fb3e,
         type: 3}
       propertyPath: sceneViewId
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402294591432926169, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773267043479556939, guid: f6eda5cbdab96c141a7907751588fb3e,
+        type: 3}
+      propertyPath: m_Text
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5845882240746644133, guid: f6eda5cbdab96c141a7907751588fb3e,
         type: 3}

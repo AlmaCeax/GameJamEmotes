@@ -68,6 +68,7 @@ public class Robot : MonoBehaviour
     {
         StartCoroutine("GrabAnimation");
         state = STATE.GRABBING;
+        anim.SetBool("Grab", true);
         grabbing = true;
         if(!currentGrabbedItem.pView.AmOwner)
             currentGrabbedItem.pView.TransferOwnership(PhotonNetwork.LocalPlayer);
@@ -78,6 +79,7 @@ public class Robot : MonoBehaviour
     void ReleaseGrab()
     {
         StartCoroutine("UnGrabAnimation");
+        anim.SetBool("Grab", false);
         state = STATE.NONE;
         grabbing = false;
         currentGrabbedItem.grabbed = false;
