@@ -21,6 +21,7 @@ public class Robot : MonoBehaviour
 
     private GameObject[] emotes;
     private GameObject emoteCanvas;
+    internal static Robot LocalPlayerInstance;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,6 +29,9 @@ public class Robot : MonoBehaviour
         anim = GetComponent<Animator>();
         pView = GetComponent<PhotonView>();
         movement = GetComponent<PlayerMovement>();
+
+        if (pView.IsMine)
+            LocalPlayerInstance = this;
     }
 
     private void Start()
