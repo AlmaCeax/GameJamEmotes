@@ -11,7 +11,7 @@ public class Emote : MonoBehaviour
     public float activeTime = 3.0f;
     public PhotonView pView;
     public bool isVisible = true;
-    Vector3 exitedPosition;
+    public Vector3 exitedPosition;
 
     // Update is called once per frame
     void Update()
@@ -46,6 +46,7 @@ public class Emote : MonoBehaviour
     private void RepositionEmote()
     {
         transform.position = exitedPosition;
+        Debug.Log("Entro en reposition");
     }
 
     private void OnBecameInvisible()
