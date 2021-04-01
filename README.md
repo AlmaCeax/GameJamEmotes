@@ -1,4 +1,4 @@
-# EmoteMe!
+# EmoteME!
 
 Small cooperative game in which a pair of robots must solve puzzles in order to escape from their suffering.
 
