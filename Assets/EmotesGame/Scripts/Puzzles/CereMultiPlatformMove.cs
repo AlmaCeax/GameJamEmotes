@@ -51,7 +51,7 @@ public class CereMultiPlatformMove : MonoBehaviour
         {
             if(left && count > 0)
             {       
-                transform.position += new Vector3(transform.position.x - 1, transform.position.y, transform.position.z) * Time.deltaTime;
+                transform.position -= new Vector3(1, 0, 0) * Time.deltaTime;
                 if(player1 != null && player1.pView.IsMine)
                     player1.movement.controller.Move(-transform.right * Time.deltaTime);
                 if(player2 != null && player2.pView.IsMine)
@@ -60,7 +60,7 @@ public class CereMultiPlatformMove : MonoBehaviour
             }
             else if(!left && count < length)
             {
-                transform.position += new Vector3(transform.position.x + 1, transform.position.y, transform.position.z) * Time.deltaTime;
+                transform.position += new Vector3(1, 0, 0) * Time.deltaTime;
                 if (player1 != null && player1.pView.IsMine)
                     player1.movement.controller.Move(transform.right * Time.deltaTime);
                 if(player2 != null && player2.pView.IsMine)
