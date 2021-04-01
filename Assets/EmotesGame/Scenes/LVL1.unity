@@ -12908,6 +12908,81 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 479
       objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.4798793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.16480015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.16480015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].time
+      value: 0.05309677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312085498972519447, guid: 647390935727af045a969914478b3772,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647390935727af045a969914478b3772, type: 3}
 --- !u!1001 &1726812293
