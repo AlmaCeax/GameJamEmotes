@@ -21,7 +21,11 @@ public class Robot : MonoBehaviour
 
     public Emote[] emotes;
     private GameObject emoteCanvas;
+    public AudioClip[] emoteClips;
+
     internal static Robot LocalPlayerInstance;
+
+    private AudioSource asource;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +33,7 @@ public class Robot : MonoBehaviour
         anim = GetComponent<Animator>();
         pView = GetComponent<PhotonView>();
         movement = GetComponent<PlayerMovement>();
+        asource = GetComponent<AudioSource>();
 
         if(GameManager.Instance)
         {
@@ -147,13 +152,29 @@ public class Robot : MonoBehaviour
             pView.RPC("HideActiveEmotes", RpcTarget.All);
 
             if (arrows.x > 0.1f)
+            {
                 emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
+                if(!asource.isPlaying)
+                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.NO]);
+            }
             else if (arrows.x < -0.1f)
+            {
                 emotes[(int)EMOTETYPE.YES].pView.RPC("Show", RpcTarget.All);
+                if (!asource.isPlaying)
+                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.YES]);
+            }
             else if (arrows.y < -0.1f)
+            {
                 emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
+                if (!asource.isPlaying)
+                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.HERE]);
+            }
             else if (arrows.y > 0.1f)
+            {
                 emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
+                if (!asource.isPlaying)
+                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.JUMP]);
+            }
         }
 
         if (Input.GetButtonDown("LeftBump"))
