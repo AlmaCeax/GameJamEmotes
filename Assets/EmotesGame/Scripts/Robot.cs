@@ -154,20 +154,17 @@ public class Robot : MonoBehaviour
             if (arrows.x > 0.1f)
             {
                 emotes[(int)EMOTETYPE.NO].pView.RPC("Show", RpcTarget.All);
-                if(!asource.isPlaying)
-                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.NO]);
+                pView.RPC("PlayRPCEmoteSFX", RpcTarget.All, (int)EMOTETYPE.NO);
             }
             else if (arrows.x < -0.1f)
             {
                 emotes[(int)EMOTETYPE.YES].pView.RPC("Show", RpcTarget.All);
-                if (!asource.isPlaying)
-                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.YES]);
+                pView.RPC("PlayRPCEmoteSFX", RpcTarget.All, (int)EMOTETYPE.YES);
             }
             else if (arrows.y < -0.1f)
             {
                 emotes[(int)EMOTETYPE.HERE].pView.RPC("Show", RpcTarget.All);
-                if (!asource.isPlaying)
-                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.HERE]);
+                pView.RPC("PlayRPCEmoteSFX", RpcTarget.All, (int)EMOTETYPE.HERE);
             }
             else if (arrows.y > 0.1f)
             {
