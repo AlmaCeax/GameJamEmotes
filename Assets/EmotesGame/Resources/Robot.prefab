@@ -1015,6 +1015,7 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -20
   maxGravity: -10
+  jumpClip: {fileID: 8300000, guid: c904ab3109829f948b05f4153ababccd, type: 3}
 --- !u!114 &634234826190620132
 MonoBehaviour:
   m_ObjectHideFlags: 0

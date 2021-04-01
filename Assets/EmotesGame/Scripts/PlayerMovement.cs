@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private int groundLayerMask;
     private Camera currentCamera;
 
+    public AudioClip jumpClip;
+
     private Vector3 move;
 
     private void Start()
@@ -98,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             anim.SetBool("Jump", true);
+            GetComponent<AudioSource>().PlayOneShot(jumpClip);
         }
 
         if(playerVelocity.y < 0)
