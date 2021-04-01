@@ -172,8 +172,7 @@ public class Robot : MonoBehaviour
             else if (arrows.y > 0.1f)
             {
                 emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
-                if (!asource.isPlaying)
-                    asource.PlayOneShot(emoteClips[(int)EMOTETYPE.JUMP]);
+                pView.RPC("PlayRPCEmoteSFX", RpcTarget.All, (int)EMOTETYPE.JUMP);
             }
         }
 
@@ -185,6 +184,13 @@ public class Robot : MonoBehaviour
 
             anim.SetBool("Dancing", true);
         }
+    }
+
+    [PunRPC]
+    public void PlayRPCEmoteSFX(int clip)
+    {
+        if (!asource.isPlaying)
+            asource.PlayOneShot(emoteClips[clip]);
     }
 
     IEnumerator GrabAnimation()
