@@ -112,7 +112,7 @@ public class Robot : MonoBehaviour
     void CheckGrabbables()
     {
         float grabAxis = Input.GetAxis("Grab");
-        if (grabAxis > 0.1f && !grabbing)
+        if (grabAxis > 0.1f || Input.GetKeyDown(KeyCode.E) && !grabbing)
         {
             RaycastHit hit;
 
@@ -128,7 +128,7 @@ public class Robot : MonoBehaviour
             }
         }
         
-        if (grabbing && grabAxis > 0.1f)
+        if (grabbing && (grabAxis > 0.1f || Input.GetKey(KeyCode.E)))
         {
             RaycastHit hit;
 
@@ -147,7 +147,7 @@ public class Robot : MonoBehaviour
     {
         Vector2 arrows = new Vector2(Input.GetAxis("HorizontalArrow"), Input.GetAxis("VerticalArrow"));
 
-        if (arrows != Vector2.zero)
+        if (arrows.magnitude >= 0.1f)
         {
             pView.RPC("HideActiveEmotes", RpcTarget.All);
 
@@ -171,9 +171,10 @@ public class Robot : MonoBehaviour
                 emotes[(int)EMOTETYPE.JUMP].pView.RPC("Show", RpcTarget.All);
                 pView.RPC("PlayRPCEmoteSFX", RpcTarget.All, (int)EMOTETYPE.JUMP);
             }
+   
         }
 
-        if (Input.GetButtonDown("LeftBump"))
+        if (Input.GetButtonDown("LeftBump") || Input.GetKeyDown(KeyCode.Alpha5))
         {
             pView.RPC("HideActiveEmotes", RpcTarget.All);
 

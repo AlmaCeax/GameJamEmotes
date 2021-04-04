@@ -1328,7 +1328,7 @@ PrefabInstance:
     - target: {fileID: 1008084428698023949, guid: d5b73aeaa4b68754987a7f530b33763d,
         type: 3}
       propertyPath: m_Text
-      value: Emote ME!
+      value: EmoteME!
       objectReference: {fileID: 0}
     - target: {fileID: 1008084428698023949, guid: d5b73aeaa4b68754987a7f530b33763d,
         type: 3}
